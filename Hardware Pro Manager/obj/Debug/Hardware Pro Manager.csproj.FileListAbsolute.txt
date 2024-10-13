@@ -1,0 +1,19 @@
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.exe.config
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.exe
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.pdb
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.AssemblyReference.cache
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Properties.Resources.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.GenerateResource.cache
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CoreCompileInputs.cache
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.pdb
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Splash.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Login.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Items.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Billing.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Customers.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Feedbacks.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Sales.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb.mdf
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb_log.ldf
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.InstantFeedback.resources
