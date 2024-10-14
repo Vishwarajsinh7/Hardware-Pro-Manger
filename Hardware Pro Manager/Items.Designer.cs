@@ -47,6 +47,12 @@ namespace Hardware_Pro_Manager
             this.QtyTb = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ItemDGV = new System.Windows.Forms.DataGridView();
+            this.IDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CatDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtyDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
@@ -55,12 +61,6 @@ namespace Hardware_Pro_Manager
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.IDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CatDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtyDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -263,10 +263,60 @@ namespace Hardware_Pro_Manager
             this.QtyDGV});
             this.ItemDGV.Location = new System.Drawing.Point(70, 339);
             this.ItemDGV.Name = "ItemDGV";
-            this.ItemDGV.RowHeadersWidth = 62;
+            this.ItemDGV.RowHeadersWidth = 25;
             this.ItemDGV.RowTemplate.Height = 28;
             this.ItemDGV.Size = new System.Drawing.Size(870, 275);
             this.ItemDGV.TabIndex = 25;
+            this.ItemDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemDGV_CellClick);
+            this.ItemDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemDGV_CellContentClick);
+            // 
+            // IDDGV
+            // 
+            this.IDDGV.DataPropertyName = "ItId";
+            this.IDDGV.HeaderText = "ID";
+            this.IDDGV.MinimumWidth = 8;
+            this.IDDGV.Name = "IDDGV";
+            this.IDDGV.Width = 50;
+            // 
+            // NameDGV
+            // 
+            this.NameDGV.DataPropertyName = "ItName";
+            this.NameDGV.HeaderText = "Name";
+            this.NameDGV.MinimumWidth = 8;
+            this.NameDGV.Name = "NameDGV";
+            this.NameDGV.Width = 250;
+            // 
+            // CatDGV
+            // 
+            this.CatDGV.DataPropertyName = "ItCat";
+            this.CatDGV.HeaderText = "Categories";
+            this.CatDGV.MinimumWidth = 8;
+            this.CatDGV.Name = "CatDGV";
+            this.CatDGV.Width = 90;
+            // 
+            // TypeDGV
+            // 
+            this.TypeDGV.DataPropertyName = "ItType";
+            this.TypeDGV.HeaderText = "Type";
+            this.TypeDGV.MinimumWidth = 8;
+            this.TypeDGV.Name = "TypeDGV";
+            this.TypeDGV.Width = 75;
+            // 
+            // PriceDGV
+            // 
+            this.PriceDGV.DataPropertyName = "ItPrice";
+            this.PriceDGV.HeaderText = "Price";
+            this.PriceDGV.MinimumWidth = 8;
+            this.PriceDGV.Name = "PriceDGV";
+            this.PriceDGV.Width = 75;
+            // 
+            // QtyDGV
+            // 
+            this.QtyDGV.DataPropertyName = "ItQty";
+            this.QtyDGV.HeaderText = "Qty";
+            this.QtyDGV.MinimumWidth = 8;
+            this.QtyDGV.Name = "QtyDGV";
+            this.QtyDGV.Width = 75;
             // 
             // label9
             // 
@@ -298,6 +348,7 @@ namespace Hardware_Pro_Manager
             this.UpdateBtn.TabIndex = 28;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // DeleteBtn
             // 
@@ -308,6 +359,7 @@ namespace Hardware_Pro_Manager
             this.DeleteBtn.TabIndex = 29;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // ResetBtn
             // 
@@ -318,6 +370,7 @@ namespace Hardware_Pro_Manager
             this.ResetBtn.TabIndex = 30;
             this.ResetBtn.Text = "Reset";
             this.ResetBtn.UseVisualStyleBackColor = true;
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
             // panel1
             // 
@@ -373,54 +426,6 @@ namespace Hardware_Pro_Manager
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
-            // 
-            // IDDGV
-            // 
-            this.IDDGV.DataPropertyName = "ItId";
-            this.IDDGV.HeaderText = "ID";
-            this.IDDGV.MinimumWidth = 8;
-            this.IDDGV.Name = "IDDGV";
-            this.IDDGV.Width = 150;
-            // 
-            // NameDGV
-            // 
-            this.NameDGV.DataPropertyName = "ItName";
-            this.NameDGV.HeaderText = "Name";
-            this.NameDGV.MinimumWidth = 8;
-            this.NameDGV.Name = "NameDGV";
-            this.NameDGV.Width = 150;
-            // 
-            // CatDGV
-            // 
-            this.CatDGV.DataPropertyName = "ItCat";
-            this.CatDGV.HeaderText = "Categories";
-            this.CatDGV.MinimumWidth = 8;
-            this.CatDGV.Name = "CatDGV";
-            this.CatDGV.Width = 150;
-            // 
-            // TypeDGV
-            // 
-            this.TypeDGV.DataPropertyName = "ItType";
-            this.TypeDGV.HeaderText = "Type";
-            this.TypeDGV.MinimumWidth = 8;
-            this.TypeDGV.Name = "TypeDGV";
-            this.TypeDGV.Width = 150;
-            // 
-            // PriceDGV
-            // 
-            this.PriceDGV.DataPropertyName = "ItPrice";
-            this.PriceDGV.HeaderText = "Price";
-            this.PriceDGV.MinimumWidth = 8;
-            this.PriceDGV.Name = "PriceDGV";
-            this.PriceDGV.Width = 150;
-            // 
-            // QtyDGV
-            // 
-            this.QtyDGV.DataPropertyName = "ItQty";
-            this.QtyDGV.HeaderText = "Qty";
-            this.QtyDGV.MinimumWidth = 8;
-            this.QtyDGV.Name = "QtyDGV";
-            this.QtyDGV.Width = 150;
             // 
             // Items
             // 

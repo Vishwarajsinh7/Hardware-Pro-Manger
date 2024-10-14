@@ -20,8 +20,9 @@ namespace Hardware_Pro_Manager
         SqlDataAdapter da;
         DataSet ds;
         DataGridViewCellEventArgs es;
+        int key = 0;
 
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
 
 
         void Connection()
@@ -41,6 +42,8 @@ namespace Hardware_Pro_Manager
                 cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Item ('" + ItName.Text + "') Saved!");
+                FillGrid();
+                Reset();
             }
             catch (Exception Ex)
             {
@@ -61,6 +64,61 @@ namespace Hardware_Pro_Manager
             ItemDGV.DataSource = dt;
             conn.Close();
         }
+
+        void Reset()
+        {
+
+            ItName.Text = "";
+            CatCp.SelectedIndex = -1;
+            TypeCb.SelectedIndex = -1;
+            PriceTb.Text = "";
+            QtyTb.Text = "";
+            key = 0;
+        }
+
+        void UpdateItem()
+        {
+            Connection();
+
+            try
+            {
+                string query = "UPDATE ItemTbl SET ItName = '" + ItName.Text + "', ItCat = '" + CatCp.SelectedItem.ToString() + "', ItType = '" + TypeCb.SelectedItem.ToString() + "', ItQty = '" + QtyTb.Text + "', ItPrice = '" + PriceTb.Text + "' WHERE ItId = '" + key + "';";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item ('" + ItName.Text + "') Updated!");
+                FillGrid();
+                Reset();
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            conn.Close();
+        }
+
+
+        void DeleteItem()
+        {
+            Connection();
+
+            try
+            {
+                string query = "DELETE FROM ItemTbl WHERE ItId = '" + key + "';";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item ('" + ItName.Text + "') Deleted!");
+                FillGrid();
+                Reset();
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            conn.Close();
+        }
+
 
         public Items()
         {
@@ -142,6 +200,72 @@ namespace Hardware_Pro_Manager
         private void Items_Load(object sender, EventArgs e)
         {
             FillGrid();
+        }
+        
+        private void ItemDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+       
+
+        private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Connection();
+
+            ItName.Text = (ItemDGV.Rows[e.RowIndex].Cells["NameDGV"].Value).ToString();
+            CatCp.SelectedItem = (ItemDGV.Rows[e.RowIndex].Cells["CatDGV"].Value).ToString();
+
+            TypeCb.SelectedItem = (ItemDGV.Rows[e.RowIndex].Cells["TypeDGV"].Value).ToString();
+
+            PriceTb.Text = (ItemDGV.Rows[e.RowIndex].Cells["PriceDGV"].Value).ToString();
+
+            QtyTb.Text = (ItemDGV.Rows[e.RowIndex].Cells["QtyDGV"].Value).ToString();
+
+
+            if(ItName.Text=="")
+            {
+                key = 0;
+            }
+            else
+            {
+                key = Convert.ToInt16(ItemDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
+            }
+
+            conn.Close();
+
+        }
+
+       
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Please choose any row from data!");
+            }
+            else
+            {
+                DeleteItem();
+            }
+        }
+
+        
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (ItName.Text == "" || PriceTb.Text == "" || QtyTb.Text == "" || CatCp.SelectedIndex == -1 || TypeCb.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please choose any row from data!");
+            }
+            else
+            {
+                UpdateItem();
+            }
         }
     }
 }
