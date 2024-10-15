@@ -7,11 +7,116 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Hardware_Pro_Manager
 {
     public partial class Customers : Form
     {
+
+        SqlConnection conn;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+        DataGridViewCellEventArgs es;
+        int key = 0;
+
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+
+
+        void Connection()
+        {
+            conn = new SqlConnection(s);
+            conn.Open();
+        }
+
+
+        void SaveCustomer()
+        {
+            Connection();
+
+            try
+            {
+                string query = "INSERT INTO CustomerTbl VALUES('" + CustNameTb.Text + "', '" + CustPhoneTb.Text + "')";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer ('" + CustPhoneTb.Text + "') Saved!");
+                FillGrid();
+                Reset();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            conn.Close();
+        }
+
+
+        void FillGrid()
+        {
+            Connection();
+            string query = "SELECT * FROM CustomerTbl";
+            da = new SqlDataAdapter(query, conn);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            CustomerDGV.DataSource = dt;
+            conn.Close();
+        }
+
+        void Reset()
+        {
+
+            CustNameTb.Text = "";
+            CustPhoneTb.Text = "";
+            key = 0;
+        }
+
+        void UpdateCustomer()
+        {
+            Connection();
+
+            try
+            {
+                string query = "UPDATE CustomerTbl SET CustName = '" + CustNameTb.Text + "', CustPhone = '" + CustPhoneTb.Text + "' WHERE CustId = '" + key + "';";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer ('" + CustNameTb.Text + "') Updated!");
+                FillGrid();
+                Reset();
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            conn.Close();
+        }
+
+
+        void DeleteCustomer()
+        {
+            Connection();
+
+            try
+            {
+                string query = "DELETE FROM CustomerTbl WHERE CustId = '" + key + "';";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer ('" + CustNameTb.Text + "') Deleted!");
+                FillGrid();
+                Reset();
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            conn.Close();
+        }
+
+
+
         public Customers()
         {
             InitializeComponent();
@@ -58,6 +163,78 @@ namespace Hardware_Pro_Manager
             Login ln = new Login();
             ln.Show();
             this.Hide();
+        }
+
+        private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Connection();
+
+            CustNameTb.Text = (CustomerDGV.Rows[e.RowIndex].Cells["NameDGV"].Value).ToString();
+
+            CustPhoneTb.Text = (CustomerDGV.Rows[e.RowIndex].Cells["PhoneDGV"].Value).ToString();
+
+
+            if (CustNameTb.Text == "")
+            {
+                key = 0;
+            }
+            else
+            {
+                key = Convert.ToInt16(CustomerDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
+            }
+
+            conn.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (CustNameTb.Text == "" || CustPhoneTb.Text == "")
+            {
+                MessageBox.Show("Please fill and select all parameter!");
+            }
+            else
+            {
+                SaveCustomer();
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            FillGrid();
+        }
+
+        private void Customers_Load(object sender, EventArgs e)
+        {
+            FillGrid();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Please choose any row from data!");
+            }
+            else
+            {
+                DeleteCustomer();
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (CustNameTb.Text == "" || CustPhoneTb.Text == "")
+            {
+                MessageBox.Show("Please choose any row from data!");
+            }
+            else
+            {
+                UpdateCustomer();
+            }
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 }

@@ -235,7 +235,6 @@ namespace Hardware_Pro_Manager
 
         }
 
-       
         private void ResetBtn_Click(object sender, EventArgs e)
         {
             Reset();

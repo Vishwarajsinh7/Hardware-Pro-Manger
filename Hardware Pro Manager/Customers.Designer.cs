@@ -30,17 +30,17 @@ namespace Hardware_Pro_Manager
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ResetBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CustPhoneTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CustNameTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,31 +50,34 @@ namespace Hardware_Pro_Manager
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.CustomerDGV = new System.Windows.Forms.DataGridView();
+            this.IDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.CustomerDGV);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ResetBtn);
+            this.panel1.Controls.Add(this.DeleteBtn);
+            this.panel1.Controls.Add(this.UpdateBtn);
+            this.panel1.Controls.Add(this.SaveBtn);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.CustPhoneTb);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.CustNameTb);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label4);
@@ -88,46 +91,62 @@ namespace Hardware_Pro_Manager
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 631);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button4
+            // label10
             // 
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(690, 202);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(115, 42);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "Reset";
-            this.button4.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 23);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "< Logout";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // button3
+            // ResetBtn
             // 
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(531, 202);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 42);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ResetBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetBtn.Location = new System.Drawing.Point(690, 202);
+            this.ResetBtn.Name = "ResetBtn";
+            this.ResetBtn.Size = new System.Drawing.Size(115, 42);
+            this.ResetBtn.TabIndex = 34;
+            this.ResetBtn.Text = "Reset";
+            this.ResetBtn.UseVisualStyleBackColor = true;
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
-            // button2
+            // DeleteBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(374, 202);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 42);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteBtn.Location = new System.Drawing.Point(531, 202);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(115, 42);
+            this.DeleteBtn.TabIndex = 33;
+            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
+            // UpdateBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(212, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 42);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Location = new System.Drawing.Point(374, 202);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(115, 42);
+            this.UpdateBtn.TabIndex = 32;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.Location = new System.Drawing.Point(212, 202);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(115, 42);
+            this.SaveBtn.TabIndex = 31;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox5
             // 
@@ -149,16 +168,6 @@ namespace Hardware_Pro_Manager
             this.label9.TabIndex = 26;
             this.label9.Text = "Customer List";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(70, 339);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(870, 275);
-            this.dataGridView1.TabIndex = 25;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -169,13 +178,13 @@ namespace Hardware_Pro_Manager
             this.label7.TabIndex = 22;
             this.label7.Text = "Customer Phone";
             // 
-            // textBox2
+            // CustPhoneTb
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(569, 155);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 27);
-            this.textBox2.TabIndex = 21;
+            this.CustPhoneTb.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustPhoneTb.Location = new System.Drawing.Point(569, 155);
+            this.CustPhoneTb.Name = "CustPhoneTb";
+            this.CustPhoneTb.Size = new System.Drawing.Size(217, 27);
+            this.CustPhoneTb.TabIndex = 21;
             // 
             // label6
             // 
@@ -188,13 +197,13 @@ namespace Hardware_Pro_Manager
             this.label6.Text = "Customer Name";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox1
+            // CustNameTb
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(231, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 27);
-            this.textBox1.TabIndex = 17;
+            this.CustNameTb.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustNameTb.Location = new System.Drawing.Point(231, 155);
+            this.CustNameTb.Name = "CustNameTb";
+            this.CustNameTb.Size = new System.Drawing.Size(236, 27);
+            this.CustNameTb.TabIndex = 17;
             // 
             // label5
             // 
@@ -291,16 +300,44 @@ namespace Hardware_Pro_Manager
             this.label3.Text = "Products";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label10
+            // CustomerDGV
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 21);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 23);
-            this.label10.TabIndex = 35;
-            this.label10.Text = "< Logout";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.CustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDDGV,
+            this.NameDGV,
+            this.PhoneDGV});
+            this.CustomerDGV.Location = new System.Drawing.Point(73, 326);
+            this.CustomerDGV.Name = "CustomerDGV";
+            this.CustomerDGV.RowHeadersWidth = 25;
+            this.CustomerDGV.RowTemplate.Height = 28;
+            this.CustomerDGV.Size = new System.Drawing.Size(870, 275);
+            this.CustomerDGV.TabIndex = 36;
+            this.CustomerDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemDGV_CellClick);
+            // 
+            // IDDGV
+            // 
+            this.IDDGV.DataPropertyName = "CustId";
+            this.IDDGV.HeaderText = "ID";
+            this.IDDGV.MinimumWidth = 8;
+            this.IDDGV.Name = "IDDGV";
+            this.IDDGV.Width = 50;
+            // 
+            // NameDGV
+            // 
+            this.NameDGV.DataPropertyName = "CustName";
+            this.NameDGV.HeaderText = "Name";
+            this.NameDGV.MinimumWidth = 8;
+            this.NameDGV.Name = "NameDGV";
+            this.NameDGV.Width = 250;
+            // 
+            // PhoneDGV
+            // 
+            this.PhoneDGV.DataPropertyName = "CustPhone";
+            this.PhoneDGV.HeaderText = "Phone";
+            this.PhoneDGV.MinimumWidth = 8;
+            this.PhoneDGV.Name = "PhoneDGV";
+            this.PhoneDGV.Width = 75;
             // 
             // Customers
             // 
@@ -313,14 +350,15 @@ namespace Hardware_Pro_Manager
             this.Name = "Customers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customers";
+            this.Load += new System.EventHandler(this.Customers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,11 +367,10 @@ namespace Hardware_Pro_Manager
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CustPhoneTb;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox CustNameTb;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label4;
@@ -344,10 +381,14 @@ namespace Hardware_Pro_Manager
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ResetBtn;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView CustomerDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneDGV;
     }
 }
