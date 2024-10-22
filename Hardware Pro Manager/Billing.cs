@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using System.Data.SqlClient;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 
 namespace Hardware_Pro_Manager
 {
     public partial class Billing : Form
     {
+<<<<<<< HEAD
         SqlConnection conn;
         SqlCommand cmd;
         SqlDataAdapter da;
@@ -173,6 +177,11 @@ namespace Hardware_Pro_Manager
             FillItemGrid();
             FillCustomerGrid();
             DeleteOldRecords();
+=======
+        public Billing()
+        {
+            InitializeComponent();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -193,6 +202,7 @@ namespace Hardware_Pro_Manager
         private void button2_Click(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
             Connection();
 
             try
@@ -220,6 +230,8 @@ namespace Hardware_Pro_Manager
             BillProductId = 0;
 
 
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -240,6 +252,7 @@ namespace Hardware_Pro_Manager
             ifk.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -357,5 +370,7 @@ namespace Hardware_Pro_Manager
 
             conn.Close();
         }
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
     }
 }

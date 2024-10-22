@@ -17,6 +17,7 @@ C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debu
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb.mdf
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb_log.ldf
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.InstantFeedback.resources
+<<<<<<< HEAD
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.ViewBills.resources
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -42,5 +43,24 @@ C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debu
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CopyComplete
 D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.AssemblyReference.cache
 D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe.config
+=======
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb.mdf
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb_log.ldf
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.exe.config
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.exe
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.pdb
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.AssemblyReference.cache
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Billing.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Customers.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Feedbacks.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.InstantFeedback.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Items.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Login.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Properties.Resources.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Sales.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Splash.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.GenerateResource.cache
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CoreCompileInputs.cache
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe
 D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.pdb

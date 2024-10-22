@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using System.Data.SqlClient;
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 
 namespace Hardware_Pro_Manager
 {
     public partial class Customers : Form
     {
+<<<<<<< HEAD
 
         SqlConnection conn;
         SqlCommand cmd;
@@ -117,6 +121,8 @@ namespace Hardware_Pro_Manager
 
 
 
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         public Customers()
         {
             InitializeComponent();
@@ -164,6 +170,7 @@ namespace Hardware_Pro_Manager
             ln.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 
         private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -241,5 +248,7 @@ namespace Hardware_Pro_Manager
         {
 
         }
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
     }
 }

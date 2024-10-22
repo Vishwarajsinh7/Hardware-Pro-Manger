@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using System.Data.SqlClient;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 
 
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 
 namespace Hardware_Pro_Manager
 {
     public partial class Sales : Form
     {
+<<<<<<< HEAD
         SqlConnection conn;
         SqlCommand cmd;
         SqlDataAdapter da;
@@ -58,6 +62,11 @@ namespace Hardware_Pro_Manager
         {
             InitializeComponent();
             FillSalesGrid();
+=======
+        public Sales()
+        {
+            InitializeComponent();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -92,6 +101,7 @@ namespace Hardware_Pro_Manager
             ln.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 
         private void CrystallReportOfBill_Click(object sender, EventArgs e)
         { 
@@ -132,5 +142,7 @@ namespace Hardware_Pro_Manager
         {
             
         }
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
     }
 }

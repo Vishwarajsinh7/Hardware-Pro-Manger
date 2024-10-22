@@ -16,7 +16,11 @@ namespace Hardware_Pro_Manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new Splash());
+=======
+            Application.Run(new Items());
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         }
     }
 }
