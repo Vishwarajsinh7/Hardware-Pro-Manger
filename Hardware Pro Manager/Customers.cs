@@ -21,7 +21,7 @@ namespace Hardware_Pro_Manager
         DataGridViewCellEventArgs es;
         int key = 0;
 
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
 
 
         void Connection()
@@ -235,6 +235,11 @@ namespace Hardware_Pro_Manager
         private void ResetBtn_Click(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void CustomerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

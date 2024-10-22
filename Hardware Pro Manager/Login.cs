@@ -33,13 +33,19 @@ namespace Hardware_Pro_Manager
             {
                 MessageBox.Show("Please enter username and password both!");
             }
-           else if (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234")
+            else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
             {
                 Items itm = new Items();
                 itm.Show();
                 this.Hide();
             }
-           else
+            else if (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234")
+            {
+                Items itm = new Items();
+                itm.Show();
+                this.Hide();
+            }
+            else
             {
                 MessageBox.Show("Invalide Username or Password!");
             }
@@ -56,5 +62,10 @@ namespace Hardware_Pro_Manager
         {
             
         }
-    }
+
+		private void panel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 }
