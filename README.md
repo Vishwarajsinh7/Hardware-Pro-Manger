@@ -1,7 +1,8 @@
 <<<<<<< HEAD
 # HardwareProManager
 =======
-For Installation: Download SAP Crystal Report Installer for visual studio 2019,
+For Installation: 
+- Download SAP Crystal Report Installer for visual studio 2019,
 - Go to your solution explorer and right click on References folder and tap on add references,
 - Search "Crystal" it shows number of references for crystal report, tick all one by one and press apply/finish/ok
   
