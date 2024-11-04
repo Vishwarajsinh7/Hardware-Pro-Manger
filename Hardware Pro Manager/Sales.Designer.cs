@@ -30,6 +30,7 @@ namespace Hardware_Pro_Manager
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.CrystallReportOfBill = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -39,6 +40,34 @@ namespace Hardware_Pro_Manager
             this.CustIDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustNameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmountDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+<<<<<<< HEAD
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CrystallReportOfBill = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.SalesDGV = new System.Windows.Forms.DataGridView();
+            this.BIDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustIDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustNameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmountDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+<<<<<<< HEAD
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CrystallReportOfBill = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.SalesDGV = new System.Windows.Forms.DataGridView();
+            this.BIDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustIDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustNameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmountDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+            this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,8 +77,24 @@ namespace Hardware_Pro_Manager
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesDGV)).BeginInit();
+=======
+<<<<<<< HEAD
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SalesDGV)).BeginInit();
+=======
+<<<<<<< HEAD
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SalesDGV)).BeginInit();
+=======
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,11 +104,33 @@ namespace Hardware_Pro_Manager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.crystalReportViewer1);
             this.panel1.Controls.Add(this.CrystallReportOfBill);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.SalesDGV);
+=======
+<<<<<<< HEAD
+            this.panel1.Controls.Add(this.crystalReportViewer1);
+            this.panel1.Controls.Add(this.CrystallReportOfBill);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.SalesDGV);
+=======
+<<<<<<< HEAD
+            this.panel1.Controls.Add(this.crystalReportViewer1);
+            this.panel1.Controls.Add(this.CrystallReportOfBill);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.SalesDGV);
+=======
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.dataGridView1);
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label4);
@@ -77,6 +144,13 @@ namespace Hardware_Pro_Manager
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 631);
             this.panel1.TabIndex = 2;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // crystalReportViewer1
@@ -113,6 +187,14 @@ namespace Hardware_Pro_Manager
             this.label10.TabIndex = 36;
             this.label10.Text = "< Logout";
             this.label10.Click += new System.EventHandler(this.label10_Click);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             // 
             // label9
             // 
@@ -124,6 +206,7 @@ namespace Hardware_Pro_Manager
             this.label9.TabIndex = 26;
             this.label9.Text = "Bills";
             // 
+<<<<<<< HEAD
             // SalesDGV
             // 
             this.SalesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -170,6 +253,115 @@ namespace Hardware_Pro_Manager
             this.TotalAmountDGV.MinimumWidth = 8;
             this.TotalAmountDGV.Name = "TotalAmountDGV";
             this.TotalAmountDGV.Width = 150;
+=======
+<<<<<<< HEAD
+            // SalesDGV
+            // 
+            this.SalesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SalesDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BIDDGV,
+            this.CustIDDGV,
+            this.CustNameDGV,
+            this.TotalAmountDGV});
+            this.SalesDGV.Location = new System.Drawing.Point(82, 127);
+            this.SalesDGV.Name = "SalesDGV";
+            this.SalesDGV.RowHeadersWidth = 62;
+            this.SalesDGV.RowTemplate.Height = 28;
+            this.SalesDGV.Size = new System.Drawing.Size(870, 418);
+            this.SalesDGV.TabIndex = 25;
+            // 
+            // BIDDGV
+            // 
+            this.BIDDGV.DataPropertyName = "BId";
+            this.BIDDGV.HeaderText = "Bill No.";
+            this.BIDDGV.MinimumWidth = 8;
+            this.BIDDGV.Name = "BIDDGV";
+            this.BIDDGV.Width = 150;
+            // 
+            // CustIDDGV
+            // 
+            this.CustIDDGV.DataPropertyName = "CustId";
+            this.CustIDDGV.HeaderText = "Customer ID";
+            this.CustIDDGV.MinimumWidth = 8;
+            this.CustIDDGV.Name = "CustIDDGV";
+            this.CustIDDGV.Width = 150;
+            // 
+            // CustNameDGV
+            // 
+            this.CustNameDGV.DataPropertyName = "CustName";
+            this.CustNameDGV.HeaderText = "Customer Name";
+            this.CustNameDGV.MinimumWidth = 8;
+            this.CustNameDGV.Name = "CustNameDGV";
+            this.CustNameDGV.Width = 150;
+            // 
+            // TotalAmountDGV
+            // 
+            this.TotalAmountDGV.DataPropertyName = "Amount";
+            this.TotalAmountDGV.HeaderText = "Total Amount";
+            this.TotalAmountDGV.MinimumWidth = 8;
+            this.TotalAmountDGV.Name = "TotalAmountDGV";
+            this.TotalAmountDGV.Width = 150;
+=======
+<<<<<<< HEAD
+            // SalesDGV
+            // 
+            this.SalesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SalesDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BIDDGV,
+            this.CustIDDGV,
+            this.CustNameDGV,
+            this.TotalAmountDGV});
+            this.SalesDGV.Location = new System.Drawing.Point(82, 127);
+            this.SalesDGV.Name = "SalesDGV";
+            this.SalesDGV.RowHeadersWidth = 62;
+            this.SalesDGV.RowTemplate.Height = 28;
+            this.SalesDGV.Size = new System.Drawing.Size(870, 418);
+            this.SalesDGV.TabIndex = 25;
+            // 
+            // BIDDGV
+            // 
+            this.BIDDGV.DataPropertyName = "BId";
+            this.BIDDGV.HeaderText = "Bill No.";
+            this.BIDDGV.MinimumWidth = 8;
+            this.BIDDGV.Name = "BIDDGV";
+            this.BIDDGV.Width = 150;
+            // 
+            // CustIDDGV
+            // 
+            this.CustIDDGV.DataPropertyName = "CustId";
+            this.CustIDDGV.HeaderText = "Customer ID";
+            this.CustIDDGV.MinimumWidth = 8;
+            this.CustIDDGV.Name = "CustIDDGV";
+            this.CustIDDGV.Width = 150;
+            // 
+            // CustNameDGV
+            // 
+            this.CustNameDGV.DataPropertyName = "CustName";
+            this.CustNameDGV.HeaderText = "Customer Name";
+            this.CustNameDGV.MinimumWidth = 8;
+            this.CustNameDGV.Name = "CustNameDGV";
+            this.CustNameDGV.Width = 150;
+            // 
+            // TotalAmountDGV
+            // 
+            this.TotalAmountDGV.DataPropertyName = "Amount";
+            this.TotalAmountDGV.HeaderText = "Total Amount";
+            this.TotalAmountDGV.MinimumWidth = 8;
+            this.TotalAmountDGV.Name = "TotalAmountDGV";
+            this.TotalAmountDGV.Width = 150;
+=======
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(70, 135);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(870, 479);
+            this.dataGridView1.TabIndex = 25;
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             // 
             // label5
             // 
@@ -265,6 +457,26 @@ namespace Hardware_Pro_Manager
             this.label3.Text = "Products";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 23);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "< Logout";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -278,7 +490,19 @@ namespace Hardware_Pro_Manager
             this.Text = "Sales";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.SalesDGV)).EndInit();
+=======
+<<<<<<< HEAD
+            ((System.ComponentModel.ISupportInitialize)(this.SalesDGV)).EndInit();
+=======
+<<<<<<< HEAD
+            ((System.ComponentModel.ISupportInitialize)(this.SalesDGV)).EndInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -291,7 +515,19 @@ namespace Hardware_Pro_Manager
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridView SalesDGV;
+=======
+<<<<<<< HEAD
+        private System.Windows.Forms.DataGridView SalesDGV;
+=======
+<<<<<<< HEAD
+        private System.Windows.Forms.DataGridView SalesDGV;
+=======
+        private System.Windows.Forms.DataGridView dataGridView1;
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label4;
@@ -302,11 +538,26 @@ namespace Hardware_Pro_Manager
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         private System.Windows.Forms.Button CrystallReportOfBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn BIDDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustIDDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustNameDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmountDGV;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
     }
 }

@@ -22,7 +22,7 @@ namespace Hardware_Pro_Manager
         DataGridViewCellEventArgs es;
         int key = 0;
 
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
 
 
         void Connection()
@@ -65,6 +65,13 @@ namespace Hardware_Pro_Manager
             conn.Close();
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         void FillGridByCategory()
         {
             Connection();
@@ -111,6 +118,14 @@ namespace Hardware_Pro_Manager
         }
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         void Reset()
         {
 
@@ -240,13 +255,36 @@ namespace Hardware_Pro_Manager
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+<<<<<<< HEAD
            
+=======
+<<<<<<< HEAD
+           
+=======
+<<<<<<< HEAD
+           
+=======
+            FillGrid();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         }
 
         private void Items_Load(object sender, EventArgs e)
         {
             FillGrid();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         }
         
         private void ItemDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -282,6 +320,10 @@ namespace Hardware_Pro_Manager
 
         }
 
+<<<<<<< HEAD
+=======
+       
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         private void ResetBtn_Click(object sender, EventArgs e)
         {
             Reset();
@@ -313,6 +355,13 @@ namespace Hardware_Pro_Manager
                 UpdateItem();
             }
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
         private void FilterCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -323,5 +372,13 @@ namespace Hardware_Pro_Manager
         {
             FillGridByType();
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
     }
 }

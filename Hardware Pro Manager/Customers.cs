@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using System.Data.SqlClient;
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 
 namespace Hardware_Pro_Manager
 {
     public partial class Customers : Form
     {
+<<<<<<< HEAD
 
         SqlConnection conn;
         SqlCommand cmd;
@@ -21,7 +25,7 @@ namespace Hardware_Pro_Manager
         DataGridViewCellEventArgs es;
         int key = 0;
 
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
 
 
         void Connection()
@@ -117,6 +121,8 @@ namespace Hardware_Pro_Manager
 
 
 
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         public Customers()
         {
             InitializeComponent();
@@ -164,6 +170,7 @@ namespace Hardware_Pro_Manager
             ln.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 
         private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -241,5 +248,13 @@ namespace Hardware_Pro_Manager
         {
 
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
     }
 }

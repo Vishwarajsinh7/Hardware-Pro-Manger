@@ -7,16 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 using System.Data.SqlClient;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
 namespace Hardware_Pro_Manager
 {
     public partial class Sales : Form
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         SqlConnection conn;
         SqlCommand cmd;
         SqlDataAdapter da;
@@ -31,7 +53,11 @@ namespace Hardware_Pro_Manager
 
         
 
+<<<<<<< HEAD
         String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+=======
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
         void Connection()
         {
@@ -58,6 +84,17 @@ namespace Hardware_Pro_Manager
         {
             InitializeComponent();
             FillSalesGrid();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        public Sales()
+        {
+            InitializeComponent();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -92,6 +129,13 @@ namespace Hardware_Pro_Manager
             ln.Show();
             this.Hide();
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
         private void CrystallReportOfBill_Click(object sender, EventArgs e)
         { 
@@ -100,10 +144,17 @@ namespace Hardware_Pro_Manager
                 da = new SqlDataAdapter("SELECT * FROM BillTbl", conn);
                 ds = new DataSet();
                 da.Fill(ds);
+<<<<<<< HEAD
                 string xml = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/SalesData/data.xml";
                 ds.WriteXmlSchema(xml);
 
                 Crypath = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/Hardware Pro Manager/CrystalReport1.rpt";
+=======
+                string xml = @"D:/Projects/Hardware Pro Manager/SalesData/data.xml";
+                ds.WriteXmlSchema(xml);
+
+                Crypath = @"D:/Projects/Hardware Pro Manager/Hardware Pro Manager/CrystalReport1.rpt";
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
                 crystalReportViewer1.Visible = true;
 
@@ -132,5 +183,13 @@ namespace Hardware_Pro_Manager
         {
             
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
     }
 }

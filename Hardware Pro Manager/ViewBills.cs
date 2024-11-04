@@ -22,7 +22,15 @@ namespace Hardware_Pro_Manager
         DataGridViewCellEventArgs es;
 
 
+<<<<<<< HEAD
         String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+=======
+<<<<<<< HEAD
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+=======
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
 
@@ -75,10 +83,17 @@ namespace Hardware_Pro_Manager
                 da = new SqlDataAdapter("SELECT * FROM BillTbl", conn);
                 ds = new DataSet();
                 da.Fill(ds);
+<<<<<<< HEAD
                 string xml = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/SalesData/data.xml";
                 ds.WriteXmlSchema(xml);
 
                 Crypath = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/Hardware Pro Manager/CrystalReport1.rpt";
+=======
+                string xml = @"D:/Projects/Hardware Pro Manager/SalesData/data.xml";
+                ds.WriteXmlSchema(xml);
+
+                Crypath = @"D:/Projects/Hardware Pro Manager/Hardware Pro Manager/CrystalReport1.rpt";
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
                 crystalReportViewer1.Visible = true;
 

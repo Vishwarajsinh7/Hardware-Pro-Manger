@@ -33,12 +33,31 @@ namespace Hardware_Pro_Manager
             {
                 MessageBox.Show("Please enter username and password both!");
             }
+<<<<<<< HEAD
             else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
+=======
+<<<<<<< HEAD
+            else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
+=======
+<<<<<<< HEAD
+            else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
+=======
+           else if (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234")
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             {
                 Items itm = new Items();
                 itm.Show();
                 this.Hide();
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             else if (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234")
             {
                 Items itm = new Items();
@@ -46,6 +65,15 @@ namespace Hardware_Pro_Manager
                 this.Hide();
             }
             else
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+           else
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
             {
                 MessageBox.Show("Invalide Username or Password!");
             }
@@ -62,5 +90,14 @@ namespace Hardware_Pro_Manager
         {
             
         }
+<<<<<<< HEAD
+
+		private void panel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
+=======
     }
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 }

@@ -17,6 +17,13 @@ C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debu
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb.mdf
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb_log.ldf
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.InstantFeedback.resources
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.ViewBills.resources
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -40,3 +47,64 @@ C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debu
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\ShockwaveFlashObjects.dll
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe.config
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CopyComplete
+<<<<<<< HEAD
+=======
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.AssemblyReference.cache
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe.config
+<<<<<<< HEAD
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.pdb
+=======
+=======
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb.mdf
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb_log.ldf
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.exe.config
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.exe
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Hardware Pro Manager.pdb
+<<<<<<< HEAD
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Data.AdoDotNetInterop.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Shared.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.VSDesigner.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Web.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CRVsPackageLib.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\EnvDTE.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\VSLangProj.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\VsWebSite.Interop.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\EnvDTE80.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\AxShockwaveFlashObjects.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\stdole.dll
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\ShockwaveFlashObjects.dll
+=======
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.AssemblyReference.cache
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Billing.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Customers.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Feedbacks.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.InstantFeedback.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Items.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Login.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Properties.Resources.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Sales.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.Splash.resources
+<<<<<<< HEAD
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.ViewBills.resources
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.GenerateResource.cache
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CoreCompileInputs.cache
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CopyComplete
+=======
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.GenerateResource.cache
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CoreCompileInputs.cache
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe
+D:\Projects\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.pdb
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
+>>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
