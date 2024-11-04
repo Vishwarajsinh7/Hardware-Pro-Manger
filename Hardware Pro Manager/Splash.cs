@@ -43,5 +43,14 @@ namespace Hardware_Pro_Manager
         {
 
         }
+<<<<<<< HEAD
+
+		private void panel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
+=======
     }
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 }

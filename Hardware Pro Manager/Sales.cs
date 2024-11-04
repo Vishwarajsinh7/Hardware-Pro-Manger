@@ -7,16 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
 using System.Data.SqlClient;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
 
 namespace Hardware_Pro_Manager
 {
     public partial class Sales : Form
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
         SqlConnection conn;
         SqlCommand cmd;
         SqlDataAdapter da;
@@ -58,6 +71,14 @@ namespace Hardware_Pro_Manager
         {
             InitializeComponent();
             FillSalesGrid();
+<<<<<<< HEAD
+=======
+=======
+        public Sales()
+        {
+            InitializeComponent();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -92,6 +113,10 @@ namespace Hardware_Pro_Manager
             ln.Show();
             this.Hide();
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
 
         private void CrystallReportOfBill_Click(object sender, EventArgs e)
         { 
@@ -132,5 +157,10 @@ namespace Hardware_Pro_Manager
         {
             
         }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
     }
 }

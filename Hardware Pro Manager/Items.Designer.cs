@@ -61,8 +61,16 @@ namespace Hardware_Pro_Manager
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+<<<<<<< HEAD
             this.FilterType = new System.Windows.Forms.ComboBox();
             this.FilterCat = new System.Windows.Forms.ComboBox();
+=======
+<<<<<<< HEAD
+            this.FilterType = new System.Windows.Forms.ComboBox();
+            this.FilterCat = new System.Windows.Forms.ComboBox();
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -377,8 +385,16 @@ namespace Hardware_Pro_Manager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.FilterType);
             this.panel1.Controls.Add(this.FilterCat);
+=======
+<<<<<<< HEAD
+            this.panel1.Controls.Add(this.FilterType);
+            this.panel1.Controls.Add(this.FilterCat);
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.ResetBtn);
@@ -431,6 +447,10 @@ namespace Hardware_Pro_Manager
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
             // 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
             // FilterType
             // 
             this.FilterType.FormattingEnabled = true;
@@ -464,6 +484,11 @@ namespace Hardware_Pro_Manager
             this.FilterCat.Text = "Category";
             this.FilterCat.SelectionChangeCommitted += new System.EventHandler(this.FilterCat_SelectionChangeCommitted);
             // 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
             // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -522,7 +547,15 @@ namespace Hardware_Pro_Manager
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyDGV;
+<<<<<<< HEAD
         private System.Windows.Forms.ComboBox FilterType;
         private System.Windows.Forms.ComboBox FilterCat;
+=======
+<<<<<<< HEAD
+        private System.Windows.Forms.ComboBox FilterType;
+        private System.Windows.Forms.ComboBox FilterCat;
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
     }
 }

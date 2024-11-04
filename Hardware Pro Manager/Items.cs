@@ -65,6 +65,10 @@ namespace Hardware_Pro_Manager
             conn.Close();
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
         void FillGridByCategory()
         {
             Connection();
@@ -111,6 +115,11 @@ namespace Hardware_Pro_Manager
         }
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
         void Reset()
         {
 
@@ -240,13 +249,28 @@ namespace Hardware_Pro_Manager
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+<<<<<<< HEAD
            
+=======
+<<<<<<< HEAD
+           
+=======
+            FillGrid();
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
         }
 
         private void Items_Load(object sender, EventArgs e)
         {
             FillGrid();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
         }
         
         private void ItemDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -282,6 +306,10 @@ namespace Hardware_Pro_Manager
 
         }
 
+<<<<<<< HEAD
+=======
+       
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
         private void ResetBtn_Click(object sender, EventArgs e)
         {
             Reset();
@@ -313,6 +341,10 @@ namespace Hardware_Pro_Manager
                 UpdateItem();
             }
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
 
         private void FilterCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -323,5 +355,10 @@ namespace Hardware_Pro_Manager
         {
             FillGridByType();
         }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
     }
 }

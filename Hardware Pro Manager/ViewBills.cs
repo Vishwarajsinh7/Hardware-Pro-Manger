@@ -22,7 +22,11 @@ namespace Hardware_Pro_Manager
         DataGridViewCellEventArgs es;
 
 
+<<<<<<< HEAD
         String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+=======
+        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
+>>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
 
