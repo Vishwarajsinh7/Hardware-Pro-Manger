@@ -65,6 +65,52 @@ namespace Hardware_Pro_Manager
             conn.Close();
         }
 
+        void FillGridByCategory()
+        {
+            Connection();
+
+            string query;
+            if (FilterCat.SelectedItem.ToString() == "All")
+            {
+                query = "SELECT * FROM ItemTbl";
+            }
+            else
+            {
+                query = "SELECT * FROM ItemTbl WHERE ItCat = '" + FilterCat.SelectedItem.ToString() + "';";
+            }
+            
+            da = new SqlDataAdapter(query, conn);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            ItemDGV.DataSource = dt;
+            conn.Close();
+        }
+
+
+        void FillGridByType()
+        {
+            Connection();
+
+            string query;
+            if (FilterType.SelectedItem.ToString() == "All")
+            {
+                query = "SELECT * FROM ItemTbl";
+            }
+            else
+            {
+                query = "SELECT * FROM ItemTbl WHERE ItType = '" + FilterType.SelectedItem.ToString() + "';";
+            }
+
+            da = new SqlDataAdapter(query, conn);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            ItemDGV.DataSource = dt;
+            conn.Close();
+        }
+
+
         void Reset()
         {
 
@@ -194,12 +240,13 @@ namespace Hardware_Pro_Manager
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            FillGrid();
+           
         }
 
         private void Items_Load(object sender, EventArgs e)
         {
             FillGrid();
+
         }
         
         private void ItemDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -265,6 +312,16 @@ namespace Hardware_Pro_Manager
             {
                 UpdateItem();
             }
+        }
+
+        private void FilterCat_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            FillGridByCategory();
+        }
+
+        private void FilterType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            FillGridByType();
         }
     }
 }

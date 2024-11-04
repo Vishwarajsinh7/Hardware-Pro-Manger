@@ -17,3 +17,26 @@ C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debu
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb.mdf
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\HardwareProDb_log.ldf
 C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.InstantFeedback.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware_Pro_Manager.ViewBills.resources
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Data.AdoDotNetInterop.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Shared.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.VSDesigner.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Web.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\CRVsPackageLib.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\EnvDTE.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\VSLangProj.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\VsWebSite.Interop.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\EnvDTE80.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\AxShockwaveFlashObjects.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\stdole.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\bin\Debug\ShockwaveFlashObjects.dll
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.exe.config
+C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\obj\Debug\Hardware Pro Manager.csproj.CopyComplete

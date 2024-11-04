@@ -236,5 +236,10 @@ namespace Hardware_Pro_Manager
         {
             Reset();
         }
+
+        private void CustomerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

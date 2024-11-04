@@ -29,43 +29,59 @@ namespace Hardware_Pro_Manager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Billing));
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PrintBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ProdPriceTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProdNameTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.AddToBillBtn = new System.Windows.Forms.Button();
+            this.ProdQtyTb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CustNameTb = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.ViewSells = new System.Windows.Forms.Button();
+            this.TotalLbl = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.BillDGV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CustomerDGV = new System.Windows.Forms.DataGridView();
+            this.CustIDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustNameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemDGV = new System.Windows.Forms.DataGridView();
+            this.IDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CatDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtyDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BillDGV)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -77,16 +93,6 @@ namespace Hardware_Pro_Manager
             this.label3.Size = new System.Drawing.Size(82, 30);
             this.label3.TabIndex = 8;
             this.label3.Text = "Billing";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Hardware_Pro_Manager.Properties.Resources.Designer__5__upscaled;
-            this.pictureBox1.Location = new System.Drawing.Point(418, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -110,28 +116,30 @@ namespace Hardware_Pro_Manager
             this.label9.Text = "Customer List";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // button2
+            // PrintBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(710, 281);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 45);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Print";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.PrintBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintBtn.Location = new System.Drawing.Point(768, 281);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(115, 45);
+            this.PrintBtn.TabIndex = 28;
+            this.PrintBtn.Text = "Print";
+            this.PrintBtn.UseVisualStyleBackColor = true;
+            this.PrintBtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Snow;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.ProdPriceTb);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.ProdNameTb);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.AddToBillBtn);
+            this.panel2.Controls.Add(this.ProdQtyTb);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.CustNameTb);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(29, 68);
             this.panel2.Name = "panel2";
@@ -147,14 +155,16 @@ namespace Hardware_Pro_Manager
             this.button4.TabIndex = 30;
             this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox4
+            // ProdPriceTb
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(215, 109);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 27);
-            this.textBox4.TabIndex = 28;
+            this.ProdPriceTb.Enabled = false;
+            this.ProdPriceTb.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProdPriceTb.Location = new System.Drawing.Point(215, 109);
+            this.ProdPriceTb.Name = "ProdPriceTb";
+            this.ProdPriceTb.Size = new System.Drawing.Size(171, 27);
+            this.ProdPriceTb.TabIndex = 28;
             // 
             // label1
             // 
@@ -166,13 +176,14 @@ namespace Hardware_Pro_Manager
             this.label1.TabIndex = 29;
             this.label1.Text = "Price";
             // 
-            // textBox1
+            // ProdNameTb
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(16, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 27);
-            this.textBox1.TabIndex = 17;
+            this.ProdNameTb.Enabled = false;
+            this.ProdNameTb.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProdNameTb.Location = new System.Drawing.Point(16, 45);
+            this.ProdNameTb.Name = "ProdNameTb";
+            this.ProdNameTb.Size = new System.Drawing.Size(171, 27);
+            this.ProdNameTb.TabIndex = 17;
             // 
             // label6
             // 
@@ -184,23 +195,24 @@ namespace Hardware_Pro_Manager
             this.label6.TabIndex = 18;
             this.label6.Text = "Product Name";
             // 
-            // button1
+            // AddToBillBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(33, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 42);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Add to bill";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddToBillBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddToBillBtn.Location = new System.Drawing.Point(33, 154);
+            this.AddToBillBtn.Name = "AddToBillBtn";
+            this.AddToBillBtn.Size = new System.Drawing.Size(161, 42);
+            this.AddToBillBtn.TabIndex = 27;
+            this.AddToBillBtn.Text = "Add to bill";
+            this.AddToBillBtn.UseVisualStyleBackColor = true;
+            this.AddToBillBtn.Click += new System.EventHandler(this.AddToBillBtn_Click);
             // 
-            // textBox2
+            // ProdQtyTb
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(215, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 27);
-            this.textBox2.TabIndex = 21;
+            this.ProdQtyTb.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProdQtyTb.Location = new System.Drawing.Point(215, 45);
+            this.ProdQtyTb.Name = "ProdQtyTb";
+            this.ProdQtyTb.Size = new System.Drawing.Size(171, 27);
+            this.ProdQtyTb.TabIndex = 21;
             // 
             // label7
             // 
@@ -212,13 +224,14 @@ namespace Hardware_Pro_Manager
             this.label7.TabIndex = 22;
             this.label7.Text = "Qty";
             // 
-            // textBox3
+            // CustNameTb
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(16, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 27);
-            this.textBox3.TabIndex = 23;
+            this.CustNameTb.Enabled = false;
+            this.CustNameTb.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustNameTb.Location = new System.Drawing.Point(16, 109);
+            this.CustNameTb.Name = "CustNameTb";
+            this.CustNameTb.Size = new System.Drawing.Size(171, 27);
+            this.CustNameTb.TabIndex = 23;
             // 
             // label8
             // 
@@ -234,13 +247,16 @@ namespace Hardware_Pro_Manager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.crystalReportViewer1);
+            this.panel1.Controls.Add(this.ViewSells);
+            this.panel1.Controls.Add(this.TotalLbl);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.dataGridView3);
+            this.panel1.Controls.Add(this.BillDGV);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.PrintBtn);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label3);
@@ -248,13 +264,55 @@ namespace Hardware_Pro_Manager
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 631);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(13, 68);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(980, 547);
+            this.crystalReportViewer1.TabIndex = 37;
+            this.crystalReportViewer1.Visible = false;
+            // 
+            // ViewSells
+            // 
+            this.ViewSells.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewSells.Location = new System.Drawing.Point(50, 281);
+            this.ViewSells.Name = "ViewSells";
+            this.ViewSells.Size = new System.Drawing.Size(239, 45);
+            this.ViewSells.TabIndex = 36;
+            this.ViewSells.Text = "View Sells";
+            this.ViewSells.UseVisualStyleBackColor = true;
+            this.ViewSells.Click += new System.EventHandler(this.ViewSells_Click);
+            // 
+            // TotalLbl
+            // 
+            this.TotalLbl.AutoSize = true;
+            this.TotalLbl.Location = new System.Drawing.Point(651, 295);
+            this.TotalLbl.Name = "TotalLbl";
+            this.TotalLbl.Size = new System.Drawing.Size(0, 20);
+            this.TotalLbl.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 23);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "< Logout";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(418, 281);
+            this.button3.Location = new System.Drawing.Point(396, 281);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 45);
+            this.button3.Size = new System.Drawing.Size(239, 45);
             this.button3.TabIndex = 33;
             this.button3.Text = "Add Feedback";
             this.button3.UseVisualStyleBackColor = true;
@@ -272,28 +330,28 @@ namespace Hardware_Pro_Manager
             this.label4.Text = "Bills";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // dataGridView3
+            // BillDGV
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BillDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BillDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView3.Location = new System.Drawing.Point(455, 87);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 62;
-            this.dataGridView3.RowTemplate.Height = 28;
-            this.dataGridView3.Size = new System.Drawing.Size(538, 180);
-            this.dataGridView3.TabIndex = 31;
+            this.BillDGV.Location = new System.Drawing.Point(455, 87);
+            this.BillDGV.Name = "BillDGV";
+            this.BillDGV.RowHeadersWidth = 62;
+            this.BillDGV.RowTemplate.Height = 28;
+            this.BillDGV.Size = new System.Drawing.Size(538, 180);
+            this.BillDGV.TabIndex = 31;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "ID";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
@@ -307,32 +365,147 @@ namespace Hardware_Pro_Manager
             this.Column3.HeaderText = "Price";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.Column3.Width = 80;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Quantity";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.Column4.Width = 80;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Total";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
+            this.Column5.Width = 80;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.CustomerDGV);
+            this.panel3.Controls.Add(this.ItemDGV);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Location = new System.Drawing.Point(13, 332);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(980, 283);
             this.panel3.TabIndex = 30;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(101, -5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(110, 20);
+            this.label11.TabIndex = 37;
+            this.label11.Text = "Crystal Report";
+            // 
+            // CustomerDGV
+            // 
+            this.CustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustIDDGV,
+            this.CustNameDGV,
+            this.PhoneDGV});
+            this.CustomerDGV.Location = new System.Drawing.Point(16, 48);
+            this.CustomerDGV.Name = "CustomerDGV";
+            this.CustomerDGV.RowHeadersWidth = 25;
+            this.CustomerDGV.RowTemplate.Height = 28;
+            this.CustomerDGV.Size = new System.Drawing.Size(470, 219);
+            this.CustomerDGV.TabIndex = 37;
+            this.CustomerDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerDGV_CellClick);
+            // 
+            // CustIDDGV
+            // 
+            this.CustIDDGV.DataPropertyName = "CustId";
+            this.CustIDDGV.HeaderText = "ID";
+            this.CustIDDGV.MinimumWidth = 8;
+            this.CustIDDGV.Name = "CustIDDGV";
+            this.CustIDDGV.Width = 50;
+            // 
+            // CustNameDGV
+            // 
+            this.CustNameDGV.DataPropertyName = "CustName";
+            this.CustNameDGV.HeaderText = "Name";
+            this.CustNameDGV.MinimumWidth = 8;
+            this.CustNameDGV.Name = "CustNameDGV";
+            this.CustNameDGV.Width = 150;
+            // 
+            // PhoneDGV
+            // 
+            this.PhoneDGV.DataPropertyName = "CustPhone";
+            this.PhoneDGV.HeaderText = "Phone";
+            this.PhoneDGV.MinimumWidth = 8;
+            this.PhoneDGV.Name = "PhoneDGV";
+            this.PhoneDGV.Width = 75;
+            // 
+            // ItemDGV
+            // 
+            this.ItemDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDDGV,
+            this.NameDGV,
+            this.CatDGV,
+            this.TypeDGV,
+            this.PriceDGV,
+            this.QtyDGV});
+            this.ItemDGV.Location = new System.Drawing.Point(492, 48);
+            this.ItemDGV.Name = "ItemDGV";
+            this.ItemDGV.RowHeadersWidth = 25;
+            this.ItemDGV.RowTemplate.Height = 28;
+            this.ItemDGV.Size = new System.Drawing.Size(470, 219);
+            this.ItemDGV.TabIndex = 29;
+            this.ItemDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemDGV_CellClick);
+            // 
+            // IDDGV
+            // 
+            this.IDDGV.DataPropertyName = "ItId";
+            this.IDDGV.HeaderText = "ID";
+            this.IDDGV.MinimumWidth = 8;
+            this.IDDGV.Name = "IDDGV";
+            this.IDDGV.Width = 50;
+            // 
+            // NameDGV
+            // 
+            this.NameDGV.DataPropertyName = "ItName";
+            this.NameDGV.HeaderText = "Name";
+            this.NameDGV.MinimumWidth = 8;
+            this.NameDGV.Name = "NameDGV";
+            this.NameDGV.Width = 150;
+            // 
+            // CatDGV
+            // 
+            this.CatDGV.DataPropertyName = "ItCat";
+            this.CatDGV.HeaderText = "Categories";
+            this.CatDGV.MinimumWidth = 8;
+            this.CatDGV.Name = "CatDGV";
+            this.CatDGV.Width = 90;
+            // 
+            // TypeDGV
+            // 
+            this.TypeDGV.DataPropertyName = "ItType";
+            this.TypeDGV.HeaderText = "Type";
+            this.TypeDGV.MinimumWidth = 8;
+            this.TypeDGV.Name = "TypeDGV";
+            this.TypeDGV.Width = 75;
+            // 
+            // PriceDGV
+            // 
+            this.PriceDGV.DataPropertyName = "ItPrice";
+            this.PriceDGV.HeaderText = "Price";
+            this.PriceDGV.MinimumWidth = 8;
+            this.PriceDGV.Name = "PriceDGV";
+            this.PriceDGV.Width = 75;
+            // 
+            // QtyDGV
+            // 
+            this.QtyDGV.DataPropertyName = "ItQty";
+            this.QtyDGV.HeaderText = "Qty";
+            this.QtyDGV.MinimumWidth = 8;
+            this.QtyDGV.Name = "QtyDGV";
+            this.QtyDGV.Width = 75;
             // 
             // label2
             // 
@@ -345,36 +518,30 @@ namespace Hardware_Pro_Manager
             this.label2.TabIndex = 28;
             this.label2.Text = "Product List";
             // 
-            // dataGridView2
+            // pictureBox1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(492, 48);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(470, 219);
-            this.dataGridView2.TabIndex = 27;
+            this.pictureBox1.Image = global::Hardware_Pro_Manager.Properties.Resources.Designer__5__upscaled;
+            this.pictureBox1.Location = new System.Drawing.Point(418, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // printDocument1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(470, 219);
-            this.dataGridView1.TabIndex = 26;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // label10
+            // printPreviewDialog1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 23);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "< Logout";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // Billing
             // 
@@ -387,16 +554,17 @@ namespace Hardware_Pro_Manager
             this.Name = "Billing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Billing";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Billing_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BillDGV)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -407,31 +575,46 @@ namespace Hardware_Pro_Manager
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button PrintBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ProdPriceTb;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProdNameTb;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button AddToBillBtn;
+        private System.Windows.Forms.TextBox ProdQtyTb;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox CustNameTb;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView BillDGV;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView ItemDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CatDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyDGV;
+        private System.Windows.Forms.Label TotalLbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView CustomerDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustIDDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustNameDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneDGV;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button ViewSells;
+        private System.Windows.Forms.Label label11;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
     }
 }
