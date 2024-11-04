@@ -30,6 +30,10 @@ namespace Hardware_Pro_Manager
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CustomerDGV = new System.Windows.Forms.DataGridView();
+            this.IDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.ResetBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
@@ -50,17 +54,13 @@ namespace Hardware_Pro_Manager
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.CustomerDGV = new System.Windows.Forms.DataGridView();
-            this.IDDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,6 +92,46 @@ namespace Hardware_Pro_Manager
             this.panel1.Size = new System.Drawing.Size(1010, 631);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // CustomerDGV
+            // 
+            this.CustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDDGV,
+            this.NameDGV,
+            this.PhoneDGV});
+            this.CustomerDGV.Location = new System.Drawing.Point(73, 326);
+            this.CustomerDGV.Name = "CustomerDGV";
+            this.CustomerDGV.RowHeadersWidth = 25;
+            this.CustomerDGV.RowTemplate.Height = 28;
+            this.CustomerDGV.Size = new System.Drawing.Size(870, 275);
+            this.CustomerDGV.TabIndex = 36;
+            this.CustomerDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemDGV_CellClick);
+            this.CustomerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerDGV_CellContentClick);
+            // 
+            // IDDGV
+            // 
+            this.IDDGV.DataPropertyName = "CustId";
+            this.IDDGV.HeaderText = "ID";
+            this.IDDGV.MinimumWidth = 8;
+            this.IDDGV.Name = "IDDGV";
+            this.IDDGV.Width = 50;
+            // 
+            // NameDGV
+            // 
+            this.NameDGV.DataPropertyName = "CustName";
+            this.NameDGV.HeaderText = "Name";
+            this.NameDGV.MinimumWidth = 8;
+            this.NameDGV.Name = "NameDGV";
+            this.NameDGV.Width = 250;
+            // 
+            // PhoneDGV
+            // 
+            this.PhoneDGV.DataPropertyName = "CustPhone";
+            this.PhoneDGV.HeaderText = "Phone";
+            this.PhoneDGV.MinimumWidth = 8;
+            this.PhoneDGV.Name = "PhoneDGV";
+            this.PhoneDGV.Width = 75;
             // 
             // label10
             // 
@@ -300,45 +340,6 @@ namespace Hardware_Pro_Manager
             this.label3.Text = "Products";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // CustomerDGV
-            // 
-            this.CustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomerDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDDGV,
-            this.NameDGV,
-            this.PhoneDGV});
-            this.CustomerDGV.Location = new System.Drawing.Point(73, 326);
-            this.CustomerDGV.Name = "CustomerDGV";
-            this.CustomerDGV.RowHeadersWidth = 25;
-            this.CustomerDGV.RowTemplate.Height = 28;
-            this.CustomerDGV.Size = new System.Drawing.Size(870, 275);
-            this.CustomerDGV.TabIndex = 36;
-            this.CustomerDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemDGV_CellClick);
-            // 
-            // IDDGV
-            // 
-            this.IDDGV.DataPropertyName = "CustId";
-            this.IDDGV.HeaderText = "ID";
-            this.IDDGV.MinimumWidth = 8;
-            this.IDDGV.Name = "IDDGV";
-            this.IDDGV.Width = 50;
-            // 
-            // NameDGV
-            // 
-            this.NameDGV.DataPropertyName = "CustName";
-            this.NameDGV.HeaderText = "Name";
-            this.NameDGV.MinimumWidth = 8;
-            this.NameDGV.Name = "NameDGV";
-            this.NameDGV.Width = 250;
-            // 
-            // PhoneDGV
-            // 
-            this.PhoneDGV.DataPropertyName = "CustPhone";
-            this.PhoneDGV.HeaderText = "Phone";
-            this.PhoneDGV.MinimumWidth = 8;
-            this.PhoneDGV.Name = "PhoneDGV";
-            this.PhoneDGV.Width = 75;
-            // 
             // Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -353,12 +354,12 @@ namespace Hardware_Pro_Manager
             this.Load += new System.EventHandler(this.Customers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerDGV)).EndInit();
             this.ResumeLayout(false);
 
         }

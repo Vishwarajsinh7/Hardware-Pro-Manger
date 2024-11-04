@@ -61,6 +61,8 @@ namespace Hardware_Pro_Manager
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.FilterType = new System.Windows.Forms.ComboBox();
+            this.FilterCat = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -375,6 +377,8 @@ namespace Hardware_Pro_Manager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.FilterType);
+            this.panel1.Controls.Add(this.FilterCat);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.ResetBtn);
@@ -426,6 +430,39 @@ namespace Hardware_Pro_Manager
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
+            // 
+            // FilterType
+            // 
+            this.FilterType.FormattingEnabled = true;
+            this.FilterType.Items.AddRange(new object[] {
+            "All",
+            "S.S.",
+            "Brass",
+            "Aluminium",
+            "M.S.",
+            "Iron\t"});
+            this.FilterType.Location = new System.Drawing.Point(515, 301);
+            this.FilterType.Name = "FilterType";
+            this.FilterType.Size = new System.Drawing.Size(121, 28);
+            this.FilterType.TabIndex = 34;
+            this.FilterType.Text = "Types";
+            this.FilterType.SelectionChangeCommitted += new System.EventHandler(this.FilterType_SelectionChangeCommitted);
+            // 
+            // FilterCat
+            // 
+            this.FilterCat.FormattingEnabled = true;
+            this.FilterCat.Items.AddRange(new object[] {
+            "All",
+            "Lock",
+            "Hydraulic Hinges",
+            "Hinges",
+            "Gas Pumps"});
+            this.FilterCat.Location = new System.Drawing.Point(374, 301);
+            this.FilterCat.Name = "FilterCat";
+            this.FilterCat.Size = new System.Drawing.Size(121, 28);
+            this.FilterCat.TabIndex = 33;
+            this.FilterCat.Text = "Category";
+            this.FilterCat.SelectionChangeCommitted += new System.EventHandler(this.FilterCat_SelectionChangeCommitted);
             // 
             // Items
             // 
@@ -485,5 +522,7 @@ namespace Hardware_Pro_Manager
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyDGV;
+        private System.Windows.Forms.ComboBox FilterType;
+        private System.Windows.Forms.ComboBox FilterCat;
     }
 }
