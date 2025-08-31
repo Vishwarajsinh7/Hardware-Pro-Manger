@@ -1,251 +1,128 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Windows.Forms;
 
 namespace Hardware_Pro_Manager
 {
     public partial class Items : Form
     {
-
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
-        DataSet ds;
-        DataGridViewCellEventArgs es;
+        // 'key' will store the ID of the selected item for updates/deletes.
         int key = 0;
 
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
-
-
-        void Connection()
+        public Items()
         {
-            conn = new SqlConnection(s);
-            conn.Open();
+            InitializeComponent();
+            FillGrid(); // Load data when the form opens.
         }
 
-
-        void SaveItem()
-        {
-            Connection();
-
-            try
-            {
-                string query = "INSERT INTO ItemTbl VALUES('" + ItName.Text + "', '" + CatCp.SelectedItem.ToString() + "', '" + TypeCb.SelectedItem.ToString() + "', '" + PriceTb.Text + "', '" + QtyTb.Text + "')";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Item ('" + ItName.Text + "') Saved!");
-                FillGrid();
-                Reset();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
-        }
-
+        // --- DATA & HELPER METHODS ---
 
         void FillGrid()
         {
-            Connection();
-            string query = "SELECT * FROM ItemTbl";
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            ItemDGV.DataSource = dt;
-            conn.Close();
+            string query = "SELECT ItId, ItName, ItCat, ItType, ItPrice, ItQty FROM ItemTbl";
+            ItemDGV.DataSource = DbHelper.ExecuteQuery(query);
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-        void FillGridByCategory()
-        {
-            Connection();
-
-            string query;
-            if (FilterCat.SelectedItem.ToString() == "All")
-            {
-                query = "SELECT * FROM ItemTbl";
-            }
-            else
-            {
-                query = "SELECT * FROM ItemTbl WHERE ItCat = '" + FilterCat.SelectedItem.ToString() + "';";
-            }
-            
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            ItemDGV.DataSource = dt;
-            conn.Close();
-        }
-
-
-        void FillGridByType()
-        {
-            Connection();
-
-            string query;
-            if (FilterType.SelectedItem.ToString() == "All")
-            {
-                query = "SELECT * FROM ItemTbl";
-            }
-            else
-            {
-                query = "SELECT * FROM ItemTbl WHERE ItType = '" + FilterType.SelectedItem.ToString() + "';";
-            }
-
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            ItemDGV.DataSource = dt;
-            conn.Close();
-        }
-
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
         void Reset()
         {
-
             ItName.Text = "";
-            CatCp.SelectedIndex = -1;
-            TypeCb.SelectedIndex = -1;
+            CatCp.SelectedIndex = -1; // Clear selection
+            TypeCb.SelectedIndex = -1; // Clear selection
             PriceTb.Text = "";
             QtyTb.Text = "";
             key = 0;
         }
 
-        void UpdateItem()
+        void SaveItem()
         {
-            Connection();
-
-            try
-            {
-                string query = "UPDATE ItemTbl SET ItName = '" + ItName.Text + "', ItCat = '" + CatCp.SelectedItem.ToString() + "', ItType = '" + TypeCb.SelectedItem.ToString() + "', ItQty = '" + QtyTb.Text + "', ItPrice = '" + PriceTb.Text + "' WHERE ItId = '" + key + "';";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Item ('" + ItName.Text + "') Updated!");
-                FillGrid();
-                Reset();
-
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
+            // Secure query with placeholders
+            string query = "INSERT INTO ItemTbl (ItName, ItCat, ItType, ItPrice, ItQty) VALUES (@Name, @Cat, @Type, @Price, @Qty)";
+            
+            // Create parameters to safely pass values
+            SqlParameter[] parameters = {
+                new SqlParameter("@Name", ItName.Text),
+                new SqlParameter("@Cat", CatCp.SelectedItem.ToString()),
+                new SqlParameter("@Type", TypeCb.SelectedItem.ToString()),
+                new SqlParameter("@Price", Convert.ToInt32(PriceTb.Text)),
+                new SqlParameter("@Qty", Convert.ToInt32(QtyTb.Text))
+            };
+            
+            DbHelper.ExecuteNonQuery(query, parameters);
+            
+            MessageBox.Show("Item Saved!");
+            FillGrid();
+            Reset();
         }
 
+        void UpdateItem()
+        {
+            // Secure query with placeholders
+            string query = "UPDATE ItemTbl SET ItName = @Name, ItCat = @Cat, ItType = @Type, ItPrice = @Price, ItQty = @Qty WHERE ItId = @Key";
+            
+            SqlParameter[] parameters = {
+                new SqlParameter("@Name", ItName.Text),
+                new SqlParameter("@Cat", CatCp.SelectedItem.ToString()),
+                new SqlParameter("@Type", TypeCb.SelectedItem.ToString()),
+                new SqlParameter("@Price", Convert.ToInt32(PriceTb.Text)),
+                new SqlParameter("@Qty", Convert.ToInt32(QtyTb.Text)),
+                new SqlParameter("@Key", key)
+            };
+            
+            DbHelper.ExecuteNonQuery(query, parameters);
+
+            MessageBox.Show("Item Updated!");
+            FillGrid();
+            Reset();
+        }
 
         void DeleteItem()
         {
-            Connection();
+            string query = "DELETE FROM ItemTbl WHERE ItId = @Key";
+            SqlParameter[] parameters = { new SqlParameter("@Key", key) };
+            DbHelper.ExecuteNonQuery(query, parameters);
 
-            try
+            MessageBox.Show("Item Deleted!");
+            FillGrid();
+            Reset();
+        }
+
+        // Filter the grid based on the selected Category
+        void FilterByCategory()
+        {
+            if (FilterCat.SelectedItem.ToString() == "All")
             {
-                string query = "DELETE FROM ItemTbl WHERE ItId = '" + key + "';";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Item ('" + ItName.Text + "') Deleted!");
                 FillGrid();
-                Reset();
-
             }
-            catch (Exception Ex)
+            else
             {
-                MessageBox.Show(Ex.Message);
+                string query = "SELECT * FROM ItemTbl WHERE ItCat = @Category";
+                SqlParameter[] parameters = { new SqlParameter("@Category", FilterCat.SelectedItem.ToString()) };
+                ItemDGV.DataSource = DbHelper.ExecuteQuery(query, parameters);
             }
-            conn.Close();
         }
 
-
-        public Items()
+        // Filter the grid based on the selected Type
+        void FilterByType()
         {
-            InitializeComponent();
+            if (FilterType.SelectedItem.ToString() == "All")
+            {
+                FillGrid();
+            }
+            else
+            {
+                string query = "SELECT * FROM ItemTbl WHERE ItType = @Type";
+                SqlParameter[] parameters = { new SqlParameter("@Type", FilterType.SelectedItem.ToString()) };
+                ItemDGV.DataSource = DbHelper.ExecuteQuery(query, parameters);
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Customers cu = new Customers();
-            cu.Show();
-            this.Hide();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            Customers cu = new Customers();
-            cu.Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Sales sl = new Sales();
-            sl.Show();
-            this.Hide();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Feedbacks fd = new Feedbacks();
-            fd.Show();
-            this.Hide();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-            Login ln = new Login();
-            ln.Show();
-            this.Hide();
-        }
+        // --- EVENT HANDLERS ---
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(ItName.Text == "" || PriceTb.Text == "" || QtyTb.Text == "" || CatCp.SelectedIndex == -1 || TypeCb.SelectedIndex == -1)
+            if (string.IsNullOrWhiteSpace(ItName.Text) || string.IsNullOrWhiteSpace(PriceTb.Text) || string.IsNullOrWhiteSpace(QtyTb.Text) || CatCp.SelectedIndex == -1 || TypeCb.SelectedIndex == -1)
             {
-                MessageBox.Show("Please fill and select all parameter!");
+                MessageBox.Show("Please fill in all fields and make selections.");
             }
             else
             {
@@ -253,132 +130,72 @@ namespace Hardware_Pro_Manager
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-<<<<<<< HEAD
-           
-=======
-<<<<<<< HEAD
-           
-=======
-<<<<<<< HEAD
-           
-=======
-            FillGrid();
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-        }
-
-        private void Items_Load(object sender, EventArgs e)
-        {
-            FillGrid();
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-        }
-        
-        private void ItemDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-       
-
-        private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Connection();
-
-            ItName.Text = (ItemDGV.Rows[e.RowIndex].Cells["NameDGV"].Value).ToString();
-            CatCp.SelectedItem = (ItemDGV.Rows[e.RowIndex].Cells["CatDGV"].Value).ToString();
-
-            TypeCb.SelectedItem = (ItemDGV.Rows[e.RowIndex].Cells["TypeDGV"].Value).ToString();
-
-            PriceTb.Text = (ItemDGV.Rows[e.RowIndex].Cells["PriceDGV"].Value).ToString();
-
-            QtyTb.Text = (ItemDGV.Rows[e.RowIndex].Cells["QtyDGV"].Value).ToString();
-
-
-            if(ItName.Text=="")
-            {
-                key = 0;
-            }
-            else
-            {
-                key = Convert.ToInt16(ItemDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
-            }
-
-            conn.Close();
-
-        }
-
-<<<<<<< HEAD
-=======
-       
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
-        private void ResetBtn_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
-        
-
-        private void DeleteBtn_Click(object sender, EventArgs e)
+        private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (key == 0)
             {
-                MessageBox.Show("Please choose any row from data!");
-            }
-            else
-            {
-                DeleteItem();
-            }
-        }
-
-        
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-            if (ItName.Text == "" || PriceTb.Text == "" || QtyTb.Text == "" || CatCp.SelectedIndex == -1 || TypeCb.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please choose any row from data!");
+                MessageBox.Show("Please select an item from the list to update.");
             }
             else
             {
                 UpdateItem();
             }
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Please select an item from the list to delete.");
+            }
+            else
+            {
+                DeleteItem();
+            }
+        }
+        
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ItName.Text = ItemDGV.Rows[e.RowIndex].Cells["NameDGV"].Value.ToString();
+                CatCp.SelectedItem = ItemDGV.Rows[e.RowIndex].Cells["CatDGV"].Value.ToString();
+                TypeCb.SelectedItem = ItemDGV.Rows[e.RowIndex].Cells["TypeDGV"].Value.ToString();
+                PriceTb.Text = ItemDGV.Rows[e.RowIndex].Cells["PriceDGV"].Value.ToString();
+                QtyTb.Text = ItemDGV.Rows[e.RowIndex].Cells["QtyDGV"].Value.ToString();
+                key = Convert.ToInt32(ItemDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
+            }
+        }
+        
         private void FilterCat_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            FillGridByCategory();
+            FilterByCategory();
         }
 
         private void FilterType_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            FillGridByType();
+            FilterByType();
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
+
+        // --- NAVIGATION ---
+        private void label1_Click(object sender, EventArgs e) { new Customers().Show(); this.Hide(); }
+        private void pictureBox2_Click(object sender, EventArgs e) { new Customers().Show(); this.Hide(); }
+        private void label2_Click(object sender, EventArgs e) { new Sales().Show(); this.Hide(); }
+        private void label4_Click(object sender, EventArgs e) { new Feedbacks().Show(); this.Hide(); }
+        private void label5_Click(object sender, EventArgs e) { Application.Exit(); }
+        private void label10_Click(object sender, EventArgs e) { new Login().Show(); this.Hide(); }
+
+        // --- Unused Event Handlers ---
+        private void label3_Click(object sender, EventArgs e) { }
+        private void label8_Click(object sender, EventArgs e) { }
+        private void label7_Click(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void Items_Load(object sender, EventArgs e) { }
+        private void ItemDGV_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
     }
 }

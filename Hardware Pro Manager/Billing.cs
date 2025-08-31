@@ -1,90 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 using System.Data.SqlClient;
+using System.IO;
+using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
 
 namespace Hardware_Pro_Manager
 {
     public partial class Billing : Form
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
-        DataSet ds;
-        DataGridViewCellEventArgs es;
-        int key = 0, stock = 0, custKey = 0, newStock = 0;
-        int n = 0, total = 0, GrdTotal = 0;
-        int BillProductId = 1;
-
-<<<<<<< HEAD
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
-=======
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-
-        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-
-        static string Crypath = "";
-
-        void Connection()
+        int key = 0, stock = 0, custKey = 0;
+        int n = 0, GrdTotal = 0;
+        
+        public Billing()
         {
-            conn = new SqlConnection(s);
-            conn.Open();
+            InitializeComponent();
+            FillItemGrid();
+            FillCustomerGrid();
+            // Clear any temporary data from a previous session on startup
+            DeleteTempBillData();
         }
+
+        // --- DATA & HELPER METHODS ---
 
         void FillItemGrid()
         {
-            Connection();
             string query = "SELECT * FROM ItemTbl";
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            ItemDGV.DataSource = dt;
-            conn.Close();
+            ItemDGV.DataSource = DbHelper.ExecuteQuery(query);
         }
 
         void FillCustomerGrid()
         {
-            Connection();
             string query = "SELECT * FROM CustomerTbl";
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            CustomerDGV.DataSource = dt;
-            conn.Close();
+            CustomerDGV.DataSource = DbHelper.ExecuteQuery(query);
         }
 
         void Reset()
@@ -93,344 +41,193 @@ namespace Hardware_Pro_Manager
             ProdPriceTb.Text = "";
             CustNameTb.Text = "";
             ProdNameTb.Text = "";
+            BillDGV.Rows.Clear();
+            GrdTotal = 0;
+            TotalLbl.Text = "Rs. 0";
+            n = 0;
+            key = 0;
+            stock = 0;
+            custKey = 0;
         }
 
-
-
-        void UpdateItem()
+        void UpdateItem(int itemId, int quantitySold)
         {
-            Connection();
-
             try
             {
-
-                newStock = 0;
-                newStock = stock - Convert.ToInt32(ProdQtyTb.Text);
-                string query = "UPDATE ItemTbl SET ItQty = " + newStock + " WHERE ItId = '" + key + "';";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                //MessageBox.Show("Item ('" + ProdNameTb.Text + "') Updated!");
-                FillItemGrid();
-                stock = 0;
-               
-
+                // This query safely decrements the stock in the database directly
+                string query = "UPDATE ItemTbl SET ItQty = ItQty - @QuantitySold WHERE ItId = @ItemId";
+                SqlParameter[] parameters = {
+                    new SqlParameter("@QuantitySold", quantitySold),
+                    new SqlParameter("@ItemId", itemId)
+                };
+                DbHelper.ExecuteNonQuery(query, parameters);
+                FillItemGrid(); // Refresh the grid
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show($"Error updating item stock: {ex.Message}");
             }
-            conn.Close();
         }
 
+        // --- REFACTORED BILLING & REPORTING LOGIC ---
 
-        void UpdateInventory()
+        void DeleteTempBillData()
         {
-                UpdateItem();            
+            string query = "DELETE FROM TempBillTbl";
+            DbHelper.ExecuteNonQuery(query);
         }
 
-        void DeleteOldRecords()
+        void SaveToTempBill(DataGridViewRow row)
         {
-            Connection();
-
             try
             {
-                string query = "DELETE FROM TempBillTbl";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                
-                
+                // Extract values from the DataGridView row
+                string prodName = row.Cells[1].Value.ToString();
+                int price = Convert.ToInt32(row.Cells[2].Value);
+                int qty = Convert.ToInt32(row.Cells[3].Value);
+                int total = Convert.ToInt32(row.Cells[4].Value);
+                int billProductId = Convert.ToInt32(row.Cells[0].Value);
+
+                string query = "INSERT INTO TempBillTbl (BId, CustId, CustName, ProductName, ProductPrice, ProductQty, Amount) VALUES (@BId, @CustId, @CustName, @ProdName, @Price, @Qty, @Total)";
+                SqlParameter[] parameters = {
+                    new SqlParameter("@BId", billProductId),
+                    new SqlParameter("@CustId", custKey),
+                    new SqlParameter("@CustName", CustNameTb.Text),
+                    new SqlParameter("@ProdName", prodName),
+                    new SqlParameter("@Price", price),
+                    new SqlParameter("@Qty", qty),
+                    new SqlParameter("@Total", total)
+                };
+                DbHelper.ExecuteNonQuery(query, parameters);
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show($"Error saving temporary bill data: {ex.Message}");
             }
-            conn.Close();
         }
 
-
-
-        void TempBillSave()
-        {
-            
-
-            Connection();
-
-            try
-            {
-                
-                total = Convert.ToInt32(ProdQtyTb.Text) * Convert.ToInt32(ProdPriceTb.Text);
-
-                string query = "INSERT INTO TempBillTbl VALUES('" + BillProductId + "', '" + custKey + "', '" + CustNameTb.Text + "','" + ProdNameTb.Text + "', '" + Convert.ToInt32(ProdPriceTb.Text) + "', '" + Convert.ToInt32(ProdQtyTb.Text) + "', '" + total + "')";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                
-                da = new SqlDataAdapter("SELECT * FROM TempBillTbl", conn);
-                ds = new DataSet();
-                da.Fill(ds);
-<<<<<<< HEAD
-                string xml = @"C:/SEM 5/HARDWARE PRO MANAGER\Hardware Pro Manager/SalesData/Bill.xml";
-                ds.WriteXmlSchema(xml);
-
-
-                Crypath = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/Hardware Pro Manager/CrystalReport4.rpt";
-=======
-                string xml = @"D:/Projects/Hardware Pro Manager/SalesData/Bill.xml";
-                ds.WriteXmlSchema(xml);
-
-
-                Crypath = @"D:/Projects/Hardware Pro Manager/Hardware Pro Manager/CrystalReport4.rpt";
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-                cr.Load(Crypath);
-                cr.SetDataSource(ds);
-                cr.Database.Tables[0].SetDataSource(ds);
-                cr.Refresh();
-                crystalReportViewer1.ReportSource = cr;
-
-                BillProductId = BillProductId + 1;
-
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
-
-        }
-
-
-
-
-        public Billing()
-        {
-            InitializeComponent();
-            FillItemGrid();
-            FillCustomerGrid();
-            DeleteOldRecords();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-        public Billing()
-        {
-            InitializeComponent();
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-            Connection();
-
-            try
-            {
-                string query = "INSERT INTO BillTbl VALUES('" + custKey + "', '" + CustNameTb.Text + "', '"+GrdTotal+"')";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Bill Saved!");
-               
-                
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
-
-            
-
-
-            crystalReportViewer1.Visible = true;
-
-
-            DeleteOldRecords();
-            BillProductId = 0;
-
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-            Login ln = new Login();
-            ln.Show();
-            this.Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            InstantFeedback ifk = new InstantFeedback();
-            ifk.Show();
-            this.Hide();
-        }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Billing_Load(object sender, EventArgs e)
-        {
-            FillItemGrid();
-            FillCustomerGrid();
-        }
-
-        
-
-        private void ViewSells_Click(object sender, EventArgs e)
-        {
-            ViewBills vb = new ViewBills();
-            vb.Show();
-            this.Hide();
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
-        private void CustomerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Connection();
-
-            CustNameTb.Text = (CustomerDGV.Rows[e.RowIndex].Cells["CustNameDGV"].Value).ToString();
-
-
-            if (CustNameTb.Text == "")
-            {
-                custKey = 0;
-            }
-            else
-            {
-                custKey = Convert.ToInt32(CustomerDGV.Rows[e.RowIndex].Cells["CustIDDGV"].Value);
-            }
-
-            conn.Close();
-        }
+        // --- EVENT HANDLERS ---
 
         private void AddToBillBtn_Click(object sender, EventArgs e)
         {
-            if(ProdQtyTb.Text == "")
+            if (key == 0 || string.IsNullOrWhiteSpace(ProdQtyTb.Text))
             {
-                MessageBox.Show("⚠️Please choose any product from Product list!");
+                MessageBox.Show("Please select a product and enter a quantity.");
+                return;
             }
-            else if(Convert.ToInt32(ProdQtyTb.Text) > stock)
+            if (custKey == 0)
             {
-                MessageBox.Show("Insufficient quantity! or rechoose the product!");
+                MessageBox.Show("Please select a customer.");
+                return;
             }
-            else
+
+            int requestedQty;
+            if (!int.TryParse(ProdQtyTb.Text, out requestedQty) || requestedQty <= 0)
             {
-                
-
-                total = Convert.ToInt32(ProdQtyTb.Text)*Convert.ToInt32(ProdPriceTb.Text);
-
-
-                DataGridViewRow newRow = new DataGridViewRow();
-                newRow.CreateCells(BillDGV);
-                newRow.Cells[0].Value = n + 1;
-                newRow.Cells[1].Value = ProdNameTb.Text;
-                newRow.Cells[2].Value = ProdPriceTb.Text;
-                newRow.Cells[3].Value = ProdQtyTb.Text;
-                newRow.Cells[4].Value = total;
-                BillDGV.Rows.Add(newRow);
-
-                GrdTotal = GrdTotal + total;
-                TotalLbl.Text = "Rs."+GrdTotal.ToString();
-                n++;
-                
-
-
-
-
-                TempBillSave();
-
-                UpdateInventory();
-
+                MessageBox.Show("Please enter a valid positive quantity.");
+                return;
             }
+
+            if (requestedQty > stock)
+            {
+                MessageBox.Show("Insufficient stock available.");
+                return;
+            }
+
+            int price = Convert.ToInt32(ProdPriceTb.Text);
+            int total = requestedQty * price;
+
+            // Add to visual grid
+            BillDGV.Rows.Add(n + 1, ProdNameTb.Text, price, requestedQty, total);
+            
+            // Update total
+            GrdTotal += total;
+            TotalLbl.Text = "Rs. " + GrdTotal;
+            n++;
+
+            // Update inventory in the database
+            UpdateItem(key, requestedQty);
+        }
+
+        private void button2_Click(object sender, EventArgs e) // Print Button
+        {
+            if (BillDGV.Rows.Count == 0)
+            {
+                MessageBox.Show("The bill is empty. Please add items first.");
+                return;
+            }
+
+            // 1. Clear previous temporary data
+            DeleteTempBillData();
+
+            // 2. Save current bill items to the temporary table
+            foreach (DataGridViewRow row in BillDGV.Rows)
+            {
+                if (row.IsNewRow) continue;
+                SaveToTempBill(row);
+            }
+            
+            // 3. Save the final bill to the main BillTbl
+            try
+            {
+                string query = "INSERT INTO BillTbl (CustId, CustName, Amount) VALUES (@CustId, @CustName, @Amount)";
+                SqlParameter[] parameters = {
+                    new SqlParameter("@CustId", custKey),
+                    new SqlParameter("@CustName", CustNameTb.Text),
+                    new SqlParameter("@Amount", GrdTotal)
+                };
+                DbHelper.ExecuteNonQuery(query, parameters);
+                MessageBox.Show("Bill saved successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving final bill: {ex.Message}");
+                return; // Stop if we can't save the bill
+            }
+            
+            // 4. Show the Crystal Report
+            ViewBills reportForm = new ViewBills(true); // Pass true to show report immediately
+            reportForm.Show();
+            this.Hide();
         }
 
         private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Connection();
-
-            ProdNameTb.Text = (ItemDGV.Rows[e.RowIndex].Cells["NameDGV"].Value).ToString();
-
-            ProdPriceTb.Text = (ItemDGV.Rows[e.RowIndex].Cells["PriceDGV"].Value).ToString();
-
-            
-
-
-            if (ProdNameTb.Text == "")
+            if (e.RowIndex >= 0)
             {
-                key = 0;
-                stock = 0;
-            }
-            else
-            {
-                stock = 0;
+                ProdNameTb.Text = ItemDGV.Rows[e.RowIndex].Cells["NameDGV"].Value.ToString();
+                ProdPriceTb.Text = ItemDGV.Rows[e.RowIndex].Cells["PriceDGV"].Value.ToString();
                 key = Convert.ToInt32(ItemDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
                 stock = Convert.ToInt32(ItemDGV.Rows[e.RowIndex].Cells["QtyDGV"].Value);
-
             }
-
-            conn.Close();
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
+
+        private void CustomerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                CustNameTb.Text = CustomerDGV.Rows[e.RowIndex].Cells["CustNameDGV"].Value.ToString();
+                custKey = Convert.ToInt32(CustomerDGV.Rows[e.RowIndex].Cells["CustIDDGV"].Value);
+            }
+        }
+        
+        private void button4_Click(object sender, EventArgs e) // Reset Button
+        {
+            Reset();
+        }
+        
+        // --- NAVIGATION ---
+        private void label5_Click(object sender, EventArgs e) { Application.Exit(); }
+        private void label10_Click(object sender, EventArgs e) { new Login().Show(); this.Hide(); }
+        private void button3_Click(object sender, EventArgs e) { new InstantFeedback().Show(); this.Hide(); }
+        private void ViewSells_Click(object sender, EventArgs e) { new ViewBills().Show(); this.Hide(); }
+
+        // --- Unused Event Handlers ---
+        private void label9_Click(object sender, EventArgs e) { }
+        private void label8_Click(object sender, EventArgs e) { }
+        private void label4_Click(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void Billing_Load(object sender, EventArgs e) { }
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) { }
     }
 }

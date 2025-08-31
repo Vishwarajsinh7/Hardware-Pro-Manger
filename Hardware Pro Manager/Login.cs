@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hardware_Pro_Manager
@@ -17,87 +10,45 @@ namespace Hardware_Pro_Manager
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LoginBuL_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(UnameTbL.Text) || string.IsNullOrWhiteSpace(PwordTbL.Text))
+            {
+                MessageBox.Show("Please enter both a username and password.");
+                return; // Stop the method here
+            }
 
+            // Cleaned-up login logic. 
+            // NOTE: In a real application, you should check credentials against a database.
+            // This is still insecure but fixes the merge conflicts and code structure.
+            if ((UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234") ||
+                (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234"))
+            {
+                Items itemsForm = new Items();
+                itemsForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Username or Password!");
+            }
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void ContinueAsSellerLaL_Click(object sender, EventArgs e)
+        {
+            // This allows non-admin users to go directly to the billing form
+            Billing billingForm = new Billing();
+            billingForm.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e) // Exit button
         {
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           if(UnameTbL.Text == "" || PwordTbL.Text == "")
-            {
-                MessageBox.Show("Please enter username and password both!");
-            }
-<<<<<<< HEAD
-            else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
-=======
-<<<<<<< HEAD
-            else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
-=======
-<<<<<<< HEAD
-            else if (UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234")
-=======
-           else if (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234")
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-            {
-                Items itm = new Items();
-                itm.Show();
-                this.Hide();
-            }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-            else if (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234")
-            {
-                Items itm = new Items();
-                itm.Show();
-                this.Hide();
-            }
-            else
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-           else
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-            {
-                MessageBox.Show("Invalide Username or Password!");
-            }
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Billing bl = new Billing();
-            bl.Show();
-            this.Hide();
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-<<<<<<< HEAD
-
-		private void panel1_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
-	}
-=======
+        // --- Unused Event Handlers ---
+        private void label1_Click(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
     }
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
 }

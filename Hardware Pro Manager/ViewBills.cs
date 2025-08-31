@@ -1,122 +1,110 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using CrystalDecisions.Shared;
+using System.IO; // Required for Path
+using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Hardware_Pro_Manager
 {
     public partial class ViewBills : Form
     {
-
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
-        DataSet ds;
-        DataGridViewCellEventArgs es;
-
-
-<<<<<<< HEAD
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
-=======
-<<<<<<< HEAD
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
-=======
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\SEM 5\HARDWARE PRO MANAGER\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-
-        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-
-
-
-        static string Crypath = "";
-
-
-        void Connection()
-        {
-            conn = new SqlConnection(s);
-            conn.Open();
-        }
-
-
-        void FillSalesGrid()
-        {
-            Connection();
-            string query = "SELECT * FROM BillTbl";
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            SalesDGV.DataSource = dt;
-            conn.Close();
-        }
-
+        // Default constructor for viewing all sales
         public ViewBills()
         {
             InitializeComponent();
             FillSalesGrid();
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        // New constructor to handle immediate report generation
+        public ViewBills(bool showReportImmediately)
+        {
+            InitializeComponent();
+            if (showReportImmediately)
+            {
+                LoadAndShowReport();
+            }
+            else
+            {
+                FillSalesGrid();
+            }
+        }
+
+        void FillSalesGrid()
+        {
+            // Hide the report viewer and show the grid
+            crystalReportViewer1.Visible = false;
+            SalesDGV.Visible = true;
+            CrystallReportOfBill.Visible = false; // Hide button, it's not needed anymore
+
+            string query = "SELECT * FROM BillTbl";
+            SalesDGV.DataSource = DbHelper.ExecuteQuery(query);
+        }
+
+        void LoadAndShowReport()
+        {
+            try
+            {
+                // Hide the grid and show the report viewer
+                SalesDGV.Visible = false;
+                crystalReportViewer1.Visible = true;
+                CrystallReportOfBill.Visible = false;
+
+                // 1. Define the report path relative to the application's executable
+                // This assumes CrystalReport4.rpt is in your project's main directory
+                // and its "Copy to Output Directory" property is set to "Copy if newer".
+                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport4.rpt");
+
+                if (!File.Exists(reportPath))
+                {
+                    MessageBox.Show("Crystal Report file (CrystalReport4.rpt) not found. Please ensure it is in the application directory and set to 'Copy if newer'.");
+                    return;
+                }
+
+                // 2. Get the data for the report from the TempBillTbl
+                string query = "SELECT * FROM TempBillTbl";
+                DataTable reportData = DbHelper.ExecuteQuery(query);
+
+                if (reportData.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data found for the report.");
+                    return;
+                }
+                
+                // 3. Load the report and set its data source
+                ReportDocument cr = new ReportDocument();
+                cr.Load(reportPath);
+                cr.SetDataSource(reportData);
+
+                crystalReportViewer1.ReportSource = cr;
+                crystalReportViewer1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while generating the report: {ex.Message}");
+            }
+        }
+
+        // --- NAVIGATION & EVENT HANDLERS ---
+
+        private void label10_Click(object sender, EventArgs e) // Back button
         {
             Billing bl = new Billing();
             bl.Show();
             this.Hide();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CrystallReportOfBill_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                da = new SqlDataAdapter("SELECT * FROM BillTbl", conn);
-                ds = new DataSet();
-                da.Fill(ds);
-<<<<<<< HEAD
-                string xml = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/SalesData/data.xml";
-                ds.WriteXmlSchema(xml);
-
-                Crypath = @"C:/SEM 5/HARDWARE PRO MANAGER/Hardware Pro Manager/Hardware Pro Manager/CrystalReport1.rpt";
-=======
-                string xml = @"D:/Projects/Hardware Pro Manager/SalesData/data.xml";
-                ds.WriteXmlSchema(xml);
-
-                Crypath = @"D:/Projects/Hardware Pro Manager/Hardware Pro Manager/CrystalReport1.rpt";
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
-
-                crystalReportViewer1.Visible = true;
-
-                cr.Load(Crypath);
-                cr.SetDataSource(ds);
-                cr.Database.Tables[0].SetDataSource(ds);
-                cr.Refresh();
-                crystalReportViewer1.ReportSource = cr;
-
-            }
-            catch (CrystalReportsException ees)
-            {
-                MessageBox.Show(ees.ToString());
-            }
-            Connection();
-
-            conn.Close();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e) // Exit button
         {
             Application.Exit();
         }
+
+        // The old button is no longer needed with this new design, but we keep the event handler empty
+        private void CrystallReportOfBill_Click(object sender, EventArgs e)
+        {
+            // This button is now hidden and this logic is handled automatically.
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
     }
-    
 }

@@ -1,203 +1,98 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-<<<<<<< HEAD
 using System.Data.SqlClient;
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
+using System.Windows.Forms;
 
 namespace Hardware_Pro_Manager
 {
     public partial class Customers : Form
     {
-<<<<<<< HEAD
-
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataAdapter da;
-        DataSet ds;
-        DataGridViewCellEventArgs es;
+        // 'key' will store the ID of the selected customer for updates/deletes.
         int key = 0;
 
-        String s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\Hardware Pro Manager\Hardware Pro Manager\HardwareProDb.mdf;Integrated Security=True";
-
-
-        void Connection()
+        public Customers()
         {
-            conn = new SqlConnection(s);
-            conn.Open();
+            InitializeComponent();
+            FillGrid(); // Load data when the form opens
         }
 
-
-        void SaveCustomer()
-        {
-            Connection();
-
-            try
-            {
-                string query = "INSERT INTO CustomerTbl VALUES('" + CustNameTb.Text + "', '" + CustPhoneTb.Text + "')";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Customer ('" + CustPhoneTb.Text + "') Saved!");
-                FillGrid();
-                Reset();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
-        }
-
+        // --- DATA & HELPER METHODS ---
 
         void FillGrid()
         {
-            Connection();
-            string query = "SELECT * FROM CustomerTbl";
-            da = new SqlDataAdapter(query, conn);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            CustomerDGV.DataSource = dt;
-            conn.Close();
+            string query = "SELECT CustId, CustName, CustPhone FROM CustomerTbl";
+            // Use our DbHelper to safely get the data
+            CustomerDGV.DataSource = DbHelper.ExecuteQuery(query);
         }
 
         void Reset()
         {
-
             CustNameTb.Text = "";
             CustPhoneTb.Text = "";
-            key = 0;
+            key = 0; // Reset the selected key
+        }
+
+        void SaveCustomer()
+        {
+            // The query uses placeholders (@CustName, @CustPhone) for security
+            string query = "INSERT INTO CustomerTbl (CustName, CustPhone) VALUES (@CustName, @CustPhone)";
+            
+            // Create parameters to safely pass the values from textboxes
+            SqlParameter[] parameters = {
+                new SqlParameter("@CustName", CustNameTb.Text),
+                new SqlParameter("@CustPhone", CustPhoneTb.Text)
+            };
+            
+            // Execute the query using our central helper class
+            DbHelper.ExecuteNonQuery(query, parameters);
+            
+            MessageBox.Show("Customer Saved!");
+            FillGrid(); // Refresh the grid with the new data
+            Reset();
         }
 
         void UpdateCustomer()
         {
-            Connection();
+            // Secure query with placeholders
+            string query = "UPDATE CustomerTbl SET CustName = @CustName, CustPhone = @CustPhone WHERE CustId = @Key";
+            
+            // Create parameters to pass values safely
+            SqlParameter[] parameters = {
+                new SqlParameter("@CustName", CustNameTb.Text),
+                new SqlParameter("@CustPhone", CustPhoneTb.Text),
+                new SqlParameter("@Key", key)
+            };
+            
+            DbHelper.ExecuteNonQuery(query, parameters);
 
-            try
-            {
-                string query = "UPDATE CustomerTbl SET CustName = '" + CustNameTb.Text + "', CustPhone = '" + CustPhoneTb.Text + "' WHERE CustId = '" + key + "';";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Customer ('" + CustNameTb.Text + "') Updated!");
-                FillGrid();
-                Reset();
-
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
+            MessageBox.Show("Customer Updated!");
+            FillGrid();
+            Reset();
         }
-
 
         void DeleteCustomer()
         {
-            Connection();
+            // Secure query with a placeholder
+            string query = "DELETE FROM CustomerTbl WHERE CustId = @Key";
+            
+            // Create a parameter for the key
+            SqlParameter[] parameters = {
+                new SqlParameter("@Key", key)
+            };
+            
+            DbHelper.ExecuteNonQuery(query, parameters);
 
-            try
+            MessageBox.Show("Customer Deleted!");
+            FillGrid();
+            Reset();
+        }
+
+        // --- EVENT HANDLERS ---
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(CustNameTb.Text) || string.IsNullOrWhiteSpace(CustPhoneTb.Text))
             {
-                string query = "DELETE FROM CustomerTbl WHERE CustId = '" + key + "';";
-                cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Customer ('" + CustNameTb.Text + "') Deleted!");
-                FillGrid();
-                Reset();
-
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
-            conn.Close();
-        }
-
-
-
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
-        public Customers()
-        {
-            InitializeComponent();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Items itm = new Items();
-            itm.Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Sales sl = new Sales();
-            sl.Show();
-            this.Hide();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Feedbacks fd = new Feedbacks();
-            fd.Show();
-            this.Hide();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-            Login ln = new Login();
-            ln.Show();
-            this.Hide();
-        }
-<<<<<<< HEAD
-
-        private void ItemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Connection();
-
-            CustNameTb.Text = (CustomerDGV.Rows[e.RowIndex].Cells["NameDGV"].Value).ToString();
-
-            CustPhoneTb.Text = (CustomerDGV.Rows[e.RowIndex].Cells["PhoneDGV"].Value).ToString();
-
-
-            if (CustNameTb.Text == "")
-            {
-                key = 0;
-            }
-            else
-            {
-                key = Convert.ToInt16(CustomerDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
-            }
-
-            conn.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (CustNameTb.Text == "" || CustPhoneTb.Text == "")
-            {
-                MessageBox.Show("Please fill and select all parameter!");
+                MessageBox.Show("Please enter all customer details.");
             }
             else
             {
@@ -205,37 +100,27 @@ namespace Hardware_Pro_Manager
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            FillGrid();
-        }
-
-        private void Customers_Load(object sender, EventArgs e)
-        {
-            FillGrid();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (key == 0)
             {
-                MessageBox.Show("Please choose any row from data!");
-            }
-            else
-            {
-                DeleteCustomer();
-            }
-        }
-
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-            if (CustNameTb.Text == "" || CustPhoneTb.Text == "")
-            {
-                MessageBox.Show("Please choose any row from data!");
+                MessageBox.Show("Please select a customer from the list to update.");
             }
             else
             {
                 UpdateCustomer();
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Please select a customer from the list to delete.");
+            }
+            else
+            {
+                DeleteCustomer();
             }
         }
 
@@ -244,17 +129,30 @@ namespace Hardware_Pro_Manager
             Reset();
         }
 
-        private void CustomerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CustomerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // This event populates the textboxes when you click on a cell in the grid
+            if (e.RowIndex >= 0) // Ensure a valid row is clicked
+            {
+                CustNameTb.Text = CustomerDGV.Rows[e.RowIndex].Cells["NameDGV"].Value.ToString();
+                CustPhoneTb.Text = CustomerDGV.Rows[e.RowIndex].Cells["PhoneDGV"].Value.ToString();
+                key = Convert.ToInt32(CustomerDGV.Rows[e.RowIndex].Cells["IDDGV"].Value);
+            }
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c95f7139356dc744dc5fab087756fd21e09633a6
->>>>>>> eb0c822c4d08bda6e7c8a308d2cfb34688a97f2e
->>>>>>> 6c129b3f57ab73fabecd057b034226bfac8da464
+
+        // --- NAVIGATION ---
+
+        private void label3_Click(object sender, EventArgs e) { new Items().Show(); this.Hide(); }
+        private void label2_Click(object sender, EventArgs e) { new Sales().Show(); this.Hide(); }
+        private void label4_Click(object sender, EventArgs e) { new Feedbacks().Show(); this.Hide(); }
+        private void label5_Click(object sender, EventArgs e) { Application.Exit(); }
+        private void label10_Click(object sender, EventArgs e) { new Login().Show(); this.Hide(); }
+
+        // --- Unused Event Handlers ---
+        private void label6_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void Customers_Load(object sender, EventArgs e) { }
+        private void CustomerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
     }
 }
