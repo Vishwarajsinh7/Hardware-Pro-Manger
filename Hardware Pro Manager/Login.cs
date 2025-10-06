@@ -21,8 +21,8 @@ namespace Hardware_Pro_Manager
             // Cleaned-up login logic. 
             // NOTE: In a real application, you should check credentials against a database.
             // This is still insecure but fixes the merge conflicts and code structure.
-            if ((UnameTbL.Text == "Mohit" && PwordTbL.Text == "1234") ||
-                (UnameTbL.Text == "Hardik" && PwordTbL.Text == "1234"))
+            if ((UnameTbL.Text == "Astha" && PwordTbL.Text == "1234") ||
+                (UnameTbL.Text == "Viswaraj" && PwordTbL.Text == "1234"))
             {
                 Items itemsForm = new Items();
                 itemsForm.Show();
